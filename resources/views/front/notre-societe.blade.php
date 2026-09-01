@@ -383,7 +383,7 @@
                         loading="lazy"
                     >
                 </div>
-
+ 
                 <div class="col-12 col-lg-6">
                     <div class="about-section__content">
                         <h2 class="about-section__title" id="about-section-title">Qui sommes-nous ?</h2>

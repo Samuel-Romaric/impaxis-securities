@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('assets/front/css/marches.css') }}">
 @endpush
 
-
+ 
 @section('content')
     <!-- Bannière -->
     <section class="banner-section" style="background: linear-gradient(135deg, #000000 0%, #001a4d 100%); padding: 150px 20px; text-align: center; min-height: 400px; display: flex; align-items: center; justify-content: center;">

@@ -398,7 +398,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="main-navigation">
-                    <ul class="navbar-nav align-items-lg-center">
+                    <ul class="navbar-nav align-items-lg-center"> 
                         <li class="nav-item"><a class="nav-link  {{ activeRoute('front.welcome') }}" aria-current="page" href="{{ url('/') }}">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link {{ activeRoute('front.notre-societe') }}" href="{{ route('front.notre-societe') }}">Notre Société</a></li>
                         <li class="nav-item"><a class="nav-link {{-- activeRoute('front.marches') --}}" href="javascript:void(0){{-- route('front.marches') --}}">Marchés</a></li>

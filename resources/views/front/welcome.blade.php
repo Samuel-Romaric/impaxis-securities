@@ -736,7 +736,7 @@
                 <a class="history-section__action" href="#services">En savoir plus</a>
             </div>
         </div>
-    </section>
+    </section> 
 
     <section class="services-section" id="services" aria-labelledby="services-title">
         <div class="container">

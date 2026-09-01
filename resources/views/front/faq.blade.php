@@ -30,7 +30,7 @@
                 </div>
                 
                 <!-- Colonne droite - Accordéons -->
-                <div class="col-lg-7">
+                <div class="col-lg-7"> 
                     <div class="accordion" id="faqAccordion">
                         <!-- Question 1 -->
                         <div class="accordion-item" style="border: none; margin-bottom: 15px; border-radius: 8px; background-color: #e8eef7;">

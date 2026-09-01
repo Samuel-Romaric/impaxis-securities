@@ -11,7 +11,7 @@ use App\Http\Controllers\Front\ManagerController;
 | routes are loaded by the RouteServiceProvider within a group which contains the "web" middleware group. Now create something great!
 |
 */
-
+ 
 Route::get('/', [ManagerController::class, 'index'])->name('welcome');
 Route::get('/notre-societe', [ManagerController::class, 'notreSociete'])->name('notre-societe');
 Route::get('/services', [ManagerController::class, 'services'])->name('services');

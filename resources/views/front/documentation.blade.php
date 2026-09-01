@@ -187,7 +187,7 @@
                                         <i class="bi bi-download"></i>
                                     </a>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>

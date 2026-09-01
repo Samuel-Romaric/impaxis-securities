@@ -24,7 +24,7 @@
             padding: 6px;
             border-radius: 50%;
             background-color: #f59b00;
-        }
+        } 
 
         .btn-orange {
             background-color: #f59b00;
