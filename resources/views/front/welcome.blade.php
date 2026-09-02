@@ -11,7 +11,7 @@
             align-items: center;
             overflow: hidden;
             background-color: #10232d;
-            background-image: linear-gradient(90deg, rgba(1, 13, 22, .88) 0%, rgba(1, 13, 22, .55) 47%, rgba(1, 13, 22, .12) 100%), url('{{ asset('front/assets/images/slide-1.png') }}');
+            background-image: linear-gradient(90deg, rgba(1, 13, 22, .88) 0%, rgba(1, 13, 22, .55) 47%, rgba(1, 13, 22, .12) 100%), url('{{ asset('front/assets/images/slide-2.jpg') }}');
             /* background-image: linear-gradient(90deg, rgba(1, 13, 22, .88) 0%, rgba(1, 13, 22, .55) 47%, rgba(1, 13, 22, .12) 100%), url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2400&q=85'); */
             background-position: center;
             background-size: cover;
@@ -30,7 +30,8 @@
             max-width: 750px;
             margin: 0 0 38px;
             color: #fff;
-            font-size: clamp(2.4rem, 4.2vw, 4.25rem);
+            /* font-size: clamp(2.4rem, 4.2vw, 4.25rem); */
+            font-size: clamp(2.4rem, 3.2vw, 3.5rem);
             font-weight: 700;
             letter-spacing: 0;
             line-height: 1.22;
@@ -121,6 +122,7 @@
             margin: 0;
             font-size: 16px;
             line-height: 1.4;
+            text-align: justify;
         }
 
         .history-section__list {
@@ -184,12 +186,13 @@
             padding: 48px 42px;
             background: var(--impaxis-blue);
             color: #fff;
+            font-weight: 200;
         }
 
         .app-section__title {
             margin: 0 0 18px;
             color: #fff;
-            font-size: 38px;
+            font-size: 32px;
             font-weight: 600;
             line-height: 1.15;
         }
@@ -199,6 +202,7 @@
             margin: 0;
             font-size: 16px;
             line-height: 1.25;
+            text-align: justify;
         }
 
         .app-section__list {
@@ -347,6 +351,7 @@
             color: inherit;
             font-size: 15px;
             line-height: 1.16;
+            font-weight: 200;
         }
 
         .references-section {
@@ -433,7 +438,7 @@
         .news-section__title {
             margin: 0 0 54px;
             color: var(--impaxis-ink);
-            font-size: 38px;
+            font-size: 32px;
             font-weight: 600;
             line-height: 1.2;
             text-align: center;
@@ -530,8 +535,8 @@
             position: absolute;
             top: 50%;
             display: inline-flex;
-            width: 76px;
-            height: 76px;
+            width: 45px;
+            height: 45px;
             align-items: center;
             justify-content: center;
             border: 0;
@@ -545,6 +550,7 @@
         .news-carousel__control:hover,
         .news-carousel__control:focus {
             background: #c7d6eb;
+            color: var(--impaxis-orange);
             opacity: 1;
         }
 
@@ -557,18 +563,18 @@
         }
 
         .news-carousel__icon {
-            width: 22px;
-            height: 22px;
+            width: 12px;
+            height: 12px;
             border-top: 4px solid currentColor;
             border-right: 4px solid currentColor;
         }
 
         .news-carousel__icon--prev {
-            transform: rotate(-135deg) translate(-3px, -3px);
+            transform: rotate(-135deg) translate(-0px, -0px);
         }
 
         .news-carousel__icon--next {
-            transform: rotate(45deg) translate(-3px, -3px);
+            transform: rotate(45deg) translate(-0px, -0px);
         }
 
         @media (max-width: 767.98px) {
@@ -705,8 +711,8 @@
 
 @section('content')
     <section class="welcome-hero" aria-labelledby="welcome-hero-title">
-        <div class="container welcome-hero__content" style="padding-top: 120px; padding-bottom: 120px;">
-            <h1 class="welcome-hero__title py-4" id="welcome-hero-title">
+        <div class="container welcome-hero__content" style="padding-top: 100px; padding-bottom: 120px;">
+            <h1 class="welcome-hero__title py-2" id="welcome-hero-title">
                 Avec IMPAXIS SECURITIES,<br>
                 investir en bourse n’a jamais<br>
                 été aussi simple
@@ -733,7 +739,8 @@
                     <li>L’histoire d’une volonté de bâtir une famille unie, pluridisciplinaire, entreprenante, agile, respectueuse de tous et qui impacte son industrie et son environnement</li>
                     <li>L’histoire d’une communauté unie et sympathique soucieuse de l’écoute méticuleuse du client et l’élaboration de produits financiers à forte valeur ajoutée taille sur mesure.</li>
                 </ul>
-                <a class="history-section__action" href="#services">En savoir plus</a>
+                {{-- <a class="history-section__action" href="#services">En savoir plus</a> --}}
+                <a class="history-section__action" href="{{ route('front.notre-societe') }}">En savoir plus</a>
             </div>
         </div>
     </section> 
@@ -1086,5 +1093,21 @@
 @push('scripts')
     <script>
         // Add any custom JavaScript here
+        // import http from 'k6/http';
+        // import { check, sleep } from 'k6';
+
+        // export const options = {
+        //     vus: 50,          // Virtual Users
+        //     duration: '1m',   // Test Duration
+        //     };
+
+        //     export default function () {
+        //     const res = http.get('https://k6.io');
+        //     check(res, {
+        //         'status is 200': (r) => r.status === 200,
+        //         'response time < 500ms': (r) => r.timings.duration < 500,
+        //     });
+        //     sleep(1);
+        // }
     </script>
 @endpush

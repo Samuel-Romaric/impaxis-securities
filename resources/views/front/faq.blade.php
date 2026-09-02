@@ -20,7 +20,7 @@
             <div class="row align-items-center">
                 <!-- Colonne gauche -->
                 <div class="col-lg-5 mb-5 mb-lg-0">
-                    <h2 style="font-size: 48px; font-weight: 700; line-height: 1.2; margin-bottom: 20px;">
+                    <h2 style="font-size: 48px; font-weight: 600; line-height: 1.2; margin-bottom: 20px;">
                         <span style="color: #003d99;">Questions</span><br>
                         <span style="color: #000;">fréquemment posées</span>
                     </h2>

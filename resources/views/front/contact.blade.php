@@ -61,7 +61,7 @@
     <section class="container my-5" style="padding-top: 40px; padding-bottom: 40px;">
         <div class="row">
             <div class="col-md-6">
-                <h2>Nos contacts</h2>
+                <h2 style="font-size: 32px; font-weight: 600; line-height: 1.2; margin-bottom: 20px;">Nos contacts</h2>
                 <div class="card">
                     <div class="card-body">
                         <div>
@@ -100,7 +100,7 @@
             </div>
 
             <div class="col-md-6">
-                <h2>Ecrivez-nous via ce formulaire</h2>
+                <h2 style="font-size: 32px; font-weight: 600; line-height: 1.2; margin-bottom: 20px;">Ecrivez-nous via ce formulaire</h2>
                 <div class="card">
                     <div class="card-body">
                         <form>
@@ -109,13 +109,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="col-form-label" for="name">Nom complet</label>
-                                        <input type="text" class="form-control" placeholder="Votre nom">
+                                        <input type="text" class="form-control" placeholder="Prénom NOM">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="col-form-label" for="email">Email</label>
-                                        <input type="email" class="form-control" placeholder="Votre email">
+                                        <input type="email" class="form-control" placeholder="prenom.nom@domaine.tld">
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
                             </div>
                             <div class="form-group p-1">
                                 <label class="col-form-label" for="message">Message</label>
-                                <textarea class="form-control" placeholder="Votre message"></textarea>
+                                <textarea class="form-control" placeholder="Ecrivez ici votre message ..."></textarea>
                             </div>
                             <div class="row p-1 mt-4">
                                 <div class="col-md-12">

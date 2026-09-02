@@ -8,22 +8,27 @@
     <title>{{ config('app.name', 'Laravel') }} | @yield('title')</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="{{ asset('front/css/bootstrap-5.0.2/css/bootstrap.min.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('front/css/fontawesome-free-7/css/all.min.css') }}"> --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="icon" type="image/x-icon" href="{{ asset('front/assets/logo/favicon-impaxis-securities.ico') }}">
-
+    <link rel="stylesheet" href="{{ asset('front/css/bootstrap-5.0.2/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
     <style>
         :root {
             --impaxis-blue: #19479a;
             --impaxis-orange: #f59b00;
             --impaxis-ink: #090909;
             --impaxis-border: #d9d9d9;
+            --impaxis-text: #686464;
         }
 
         body {
             color: var(--impaxis-ink);
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: Helvetica, Arial, sans-serif;
+            /* font-family: "Montserrat", Arial, Helvetica, sans-serif; */
+            /* color: var(--impaxis-text); */
+            font-size: 16px;
+            font-weight: 200;
+            line-height: 1.5;
         }
 
         /* Header Styles begin */
@@ -98,6 +103,7 @@
             color: var(--impaxis-ink);
             font-size: 16px;
             white-space: nowrap;
+            border: 1.5px solid #ffffff;
         }
 
         .mainnav .nav-link:hover,
@@ -118,6 +124,12 @@
             color: #fff;
         }
 
+        .mainnav .activeContactRoute {
+            background: #fff;
+            color: #123878 !important;
+            border: 1.5px solid #123878;
+        }
+
         .logo {
             max-height: 100%;
             max-width: 150px;
@@ -126,7 +138,7 @@
         /* Market Ticker Styles begin */
         .market-ticker {
             overflow: hidden;
-            min-height: 62px;
+            min-height: 40px;
             background: var(--impaxis-ink);
             color: #fff;
         }
@@ -134,7 +146,7 @@
         .market-ticker__track {
             display: flex;
             width: max-content;
-            min-height: 62px;
+            min-height: 40px;
             align-items: center;
             animation: market-ticker-scroll 28s linear infinite;
         }
@@ -155,7 +167,7 @@
             min-height: 22px;
             padding: 0 27px;
             border-right: 1px solid #fff;
-            font-size: 13px;
+            font-size: 12px;
             white-space: nowrap;
         }
 
@@ -193,8 +205,8 @@
             }
         }
         /* Market Ticker Styles end */
-        /* Header Styles end */
 
+        /* Header Styles end */
         /* Footer Styles begin */
         .site-footer {
             border-top: 3px solid #d7d7d7;
@@ -378,39 +390,7 @@
     @stack('style')
 </head>
 <body>
-    <header>
-        <div class="topbar">
-            <div class="container d-flex justify-content-between align-items-center">
-                <a class="topbar-link topbar-link--client" href="#">Devenir client</a>
-                <div class="d-flex align-items-center gap-3">
-                    <a class="topbar-link" href="#" aria-label="Choisir la langue">Français <span class="ms-1" aria-hidden="true">&#9662;</span></a>
-                    <a class="topbar-link topbar-link--login" href="#">Accès client</a>
-                </div>
-            </div>
-        </div>
-
-        <nav class="mainnav navbar navbar-light navbar-expand-lg" aria-label="Navigation principale">
-            <div class="container">
-                <a class="brand navbar-brand m-0" href="{{ url('/') }}" aria-label="Impaxis Securities - Accueil">
-                    <img class="img-fluid brand-img logo" src="{{ asset('front/assets/images/logo-impaxis.png') }}" alt="Impaxis Securities" srcset="">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Ouvrir le menu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="main-navigation">
-                    <ul class="navbar-nav align-items-lg-center"> 
-                        <li class="nav-item"><a class="nav-link  {{ activeRoute('front.welcome') }}" aria-current="page" href="{{ url('/') }}">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link {{ activeRoute('front.notre-societe') }}" href="{{ route('front.notre-societe') }}">Notre Société</a></li>
-                        <li class="nav-item"><a class="nav-link {{-- activeRoute('front.marches') --}}" href="javascript:void(0){{-- route('front.marches') --}}">Marchés</a></li>
-                        <li class="nav-item"><a class="nav-link {{ activeRoute('front.actualites') }}" href="{{ route('front.actualites') }}">Actualités</a></li>
-                        <li class="nav-item"><a class="nav-link {{ activeRoute('front.documentation') }}" href="{{ route('front.documentation') }}">Documentation</a></li>
-                        <li class="nav-item"><a class="nav-link {{ activeRoute('front.faq') }}" href="{{ route('front.faq') }}">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link nav-link--contact" href="{{ route('front.contact') }}">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    @include('layouts.front.partials._header')
 
     <section class="market-ticker" aria-label="Cours des marchés">
         <div class="market-ticker__track">
@@ -445,7 +425,8 @@
         @yield('content')
     </main>
 
-    <footer class="site-footer">
+    @include('layouts.front.partials._footer')
+    {{-- <footer class="site-footer">
         <div class="container footer-main">
             <div class="row">
                 <div class="footer-column col-md-5 col-lg-5">
@@ -487,9 +468,9 @@
                 <div class="footer-column col-md-2 col-lg-2">
                     <h2 class="footer-heading">Liens utiles</h2>
                     <ul class="footer-links">
-                        <li><a href="#brvm">BRVM</a></li>
-                        <li><a href="#crepmf">CREPMF</a></li>
-                        <li><a href="#bceao">BCEAO</a></li>
+                        <li><a href="https://www.brvm.org/" target="_blank" rel="noopener noreferrer">BRVM</a></li>
+                        <li><a href="https://www.crepmf.org/" target="_blank" rel="noopener noreferrer">CREPMF</a></li>
+                        <li><a href="https://www.bceao.int/" target="_blank" rel="noopener noreferrer">BCEAO</a></li>
                     </ul>
                 </div>
             </div>
@@ -509,7 +490,7 @@
                 </nav>
             </div>
         </div>
-    </footer>
+    </footer> --}}
 
     <script src="{{ asset('front/css/bootstrap-5.0.2/js/bootstrap.bundle.min.js') }}"></script>
     @stack('scripts')

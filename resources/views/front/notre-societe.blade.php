@@ -56,7 +56,7 @@
             margin: 0 0 18px;
             color: #080808;
             font-size: 32px;
-            font-weight: 500;
+            font-weight: 600;
             line-height: 1.2;
         }
 
@@ -74,7 +74,7 @@
         }
 
         .mission-card {
-            min-height: 400px;
+            min-height: 300px;
             border: 0;
             border-radius: 10px;
             background: #f3f5f9;
@@ -115,7 +115,7 @@
             max-width: 470px;
             margin: 0;
             color: #171717;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.22;
         }
 
@@ -128,7 +128,7 @@
             margin: 0 0 48px;
             color: #080808;
             font-size: 32px;
-            font-weight: 500;
+            font-weight: 600;
             line-height: 1.2;
             text-align: center;
         }
@@ -182,7 +182,7 @@
             margin: 0 0 18px;
             color: #080808;
             font-size: 34px;
-            font-weight: 500;
+            font-weight: 600;
             line-height: 1.15;
         }
 
@@ -190,7 +190,7 @@
             max-width: 460px;
             margin: 0;
             color: #171717;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.25;
         }
 
@@ -234,6 +234,7 @@
             height: 525px;
             object-fit: cover;
             object-position: center;
+            border-radius: 8px;
         }
 
         @media (max-width: 767.98px) {
@@ -402,7 +403,7 @@
                 <div class="col-12 col-lg-6 d-flex">
                     <article class="card mission-card w-100">
                         <div class="card-body mission-card__body">
-                            <span class="mission-card__icon" aria-hidden="true">&#9678;</span>
+                            <span class="mission-card__icon" aria-hidden="true"><i class="bi bi-crosshair"></i></span>
                             <h2 class="mission-card__title">Notre mission</h2>
                             <p class="mission-card__copy">Faire de l’innovation financière et de l’excellence opérationnelle des leviers alternatifs de développement de l’Afrique.</p>
                         </div>
@@ -412,7 +413,7 @@
                 <div class="col-12 col-lg-6 d-flex">
                     <article class="card mission-card w-100">
                         <div class="card-body mission-card__body">
-                            <span class="mission-card__icon mission-card__icon--vision" aria-hidden="true">&#8982;</span>
+                            <span class="mission-card__icon" aria-hidden="true"><i class="bi bi-eye"></i></span>
                             <h2 class="mission-card__title">Notre vision</h2>
                             <p class="mission-card__copy">Être reconnue comme la Banque d’Affaires de référence en Afrique, la meilleure entreprise où travailler, tout en générant une rentabilité durable.</p>
                         </div>
@@ -429,7 +430,8 @@
             <div class="row gy-5 gx-4">
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="value-item">
-                        <span class="value-item__icon" aria-hidden="true">&#128161;</span>
+                        {{-- <span class="value-item__icon" aria-hidden="true">&#128161;</span> --}}
+                        <span class="value-item__icon" aria-hidden="true"><i class="bi bi-brightness-high"></i></span>
                         <h3 class="value-item__title">Innovation</h3>
                         <p class="value-item__copy">S’autoriser à penser hors des sentiers battus, à émettre de nouvelles idées (s’étonner, questionner, créer), et aller jusqu’au bout de leur mise en œuvre.</p>
                     </article>
@@ -437,7 +439,7 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="value-item">
-                        <span class="value-item__icon" aria-hidden="true">&#9889;</span>
+                        <span class="value-item__icon" aria-hidden="true"><i class="bi bi-briefcase"></i></span>
                         <h3 class="value-item__title">Responsabilité</h3>
                         <p class="value-item__copy">Prendre conscience de la portée de ses actes dans la réalisation ou non de l’ambition de l’entreprise et faire preuve d’engagement dans l’atteinte des objectifs collectifs.</p>
                     </article>
@@ -445,7 +447,7 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="value-item">
-                        <span class="value-item__icon" aria-hidden="true">&#9632;</span>
+                        <span class="value-item__icon" aria-hidden="true"><i class="bi bi-shield-check"></i></span>
                         <h3 class="value-item__title">Intégrité</h3>
                         <p class="value-item__copy">Bâtir un environnement interne de confiance et pérenniser la confiance des clients qui s’appuie sur la capacité de chaque acteur d’Impaxis à faire preuve de fiabilité et de stabilité dans le respect de ses engagements, et des principes de la société.</p>
                     </article>
@@ -453,7 +455,7 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="value-item">
-                        <span class="value-item__icon" aria-hidden="true">&#9633;</span>
+                        <span class="value-item__icon" aria-hidden="true"><i class="bi bi-graph-up-arrow"></i></span>
                         <h3 class="value-item__title">Performance</h3>
                         <p class="value-item__copy">Faire de la création de valeur, l’excellence et le sens des résultats, des drivers essentiels de ses actes au quotidien</p>
                     </article>
@@ -461,7 +463,7 @@
 
                 <div class="col-12 col-md-6 col-lg-4">
                     <article class="value-item">
-                        <span class="value-item__icon" aria-hidden="true">&#9673;</span>
+                        <span class="value-item__icon" aria-hidden="true"><i class="bi bi-people"></i></span>
                         <h3 class="value-item__title">Esprit de famille</h3>
                         <p class="value-item__copy">L’esprit de famille se manifeste à travers la bienveillance et nous permet de nous dire les choses dans la transparence et le respect</p>
                     </article>
@@ -478,8 +480,8 @@
                         <h2 class="investment-cta__title" id="investment-cta-title">Construisons ensemble vos projets d’investissement</h2>
                         <p class="investment-cta__copy">Nos équipes sont à votre disposition pour vous accompagner dans vos opérations financières et stratégies d’investissement.</p>
                         <div class="investment-cta__actions">
-                            <a class="investment-cta__action" href="{{ url('/') }}#contact">Nous contacter</a>
-                            <a class="investment-cta__action investment-cta__action--primary" href="{{ url('/') }}#devenir-client">Devenir client</a>
+                            <a class="investment-cta__action" href="{{ route('front.contact') }}#contact">Nous contacter</a>
+                            <a class="investment-cta__action investment-cta__action--primary" href="{{ route('front.contact') }}">Devenir client</a>
                         </div>
                     </div>
                 </div>

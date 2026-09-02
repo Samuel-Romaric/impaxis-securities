@@ -174,7 +174,7 @@
         .added-value-section__title {
             margin: 0 0 20px;
             color: #fff;
-            font-size: 34px;
+            font-size: 32px;
             font-weight: 600;
             line-height: 1.15;
         }

@@ -10,6 +10,10 @@ if (!function_exists('activeRoute')) {
      */
     function activeRoute($routeName)
     {
-        return request()->routeIs($routeName) ? 'active' : '';
+        if (!request()->routeIs($routeName)) {
+            return '';
+        }
+
+        return $routeName === 'front.contact' ? 'activeContactRoute' : 'active';
     }
 }
