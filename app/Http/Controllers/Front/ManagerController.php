@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Service;
 
 class ManagerController extends Controller
 {
     // 
     public function index()
     {
-        return view('front.welcome');
+        $services = Service::all();
+        return view('front.welcome', compact('services'));
     }
 
     public function notreSociete()
@@ -20,7 +22,8 @@ class ManagerController extends Controller
 
     public function services()
     {
-        return view('front.services');
+        $services = Service::all();
+        return view('front.services', compact('services'));
     }
 
     public function marches()

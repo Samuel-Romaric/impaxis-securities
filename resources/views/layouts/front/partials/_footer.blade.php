@@ -1,4 +1,4 @@
-<footer class="site-footer">
+    <footer class="site-footer">
         <div class="container footer-main">
             <div class="row">
                 <div class="footer-column col-md-5 col-lg-5">

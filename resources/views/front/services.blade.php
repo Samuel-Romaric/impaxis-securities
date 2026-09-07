@@ -303,6 +303,26 @@
             <p class="services-section__intro">Impaxis Securities propose une gamme élargie de services financiers pour répondre aux besoins de sa clientèle :</p>
 
             <div class="row g-3">
+                @foreach ($services as $service)
+                    <div class="col-12 col-md-6 col-xl-3 d-flex">
+                        <article class="card service-card {{ $service->class }} w-100">
+                            <div class="card-body service-card__body">
+                                <div class="service-card__top">
+                                    <img class="service-card__image" src="{{ $service->getFirstMediaUrl('service_images') }}" alt="{{ $service->title }}" loading="lazy">
+                                    <a class="service-card__link" href="{{ route('front.service.details', $service->slug) }}" aria-label="Découvrir le {{ $service->title }}">&#8599;</a>
+                                </div>
+                                <h3 class="service-card__title">{!! nl2br(e($service->title)) !!}</h3>
+                                <p class="service-card__copy">{{ $service->short_description }}</p>
+                            </div>
+                        </article>
+                    </div>
+                @endforeach
+            </div>
+                
+
+
+
+            {{-- <div class="row g-3">
                 <div class="col-12 col-md-6 col-xl-3 d-flex">
                     <article class="card service-card w-100">
                         <div class="card-body service-card__body">
@@ -408,7 +428,7 @@
                         </div>
                     </article>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\ManagerController;
+use App\Http\Controllers\Front\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,7 @@ use App\Http\Controllers\Front\ManagerController;
 Route::get('/', [ManagerController::class, 'index'])->name('welcome');
 Route::get('/notre-societe', [ManagerController::class, 'notreSociete'])->name('notre-societe');
 Route::get('/services', [ManagerController::class, 'services'])->name('services');
+Route::get('/service/{slug}', [ServiceController::class, 'serviceDetails'])->name('service.details');
 Route::get('/marches', [ManagerController::class, 'marches'])->name('marches');
 Route::get('/actualites', [ManagerController::class, 'actualites'])->name('actualites');
 Route::get('/documentation', [ManagerController::class, 'documentation'])->name('documentation');
