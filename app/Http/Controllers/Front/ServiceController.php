@@ -9,9 +9,9 @@ use App\Models\Service;
 class ServiceController extends Controller
 {
     //
-    public function serviceDetails($slug)
+    public function serviceShow($slug = '')
     {
         $service = Service::where('slug', $slug)->firstOrFail();
-        return view('front.services.details', compact('service'));
+        return view('front.services.show', compact('service'));
     }
 }

@@ -204,7 +204,19 @@
                     <div class="carousel-inner">
                         <div class="">
                             <div class="row g-4">
-                                <div class="col-12 col-lg-4 d-flex">
+                                @foreach ($articles as $article)
+                                    <div class="col-12 col-lg-4 d-flex">
+                                        <article class="card news-card w-100">
+                                            <img class="news-card__image" src="{{ asset($article->getFirstMediaUrl('post_images')) }}" alt="{{ $article->title }}" loading="lazy">
+                                            <div class="card-body news-card__body">
+                                                <span class="news-card__category">{{ $article->category->name }}</span>
+                                                <h3 class="news-card__title">{{ $article->title }}</h3>
+                                                <a class="news-card__action" href="{{ route('front.actualite.show', ['slug' => $article->slug]) }}">Lire plus</a>
+                                            </div>
+                                        </article>
+                                    </div>
+                                @endforeach
+                                {{-- <div class="col-12 col-lg-4 d-flex">
                                     <article class="card news-card w-100">
                                         <img class="news-card__image" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=85" alt="Graphique d’évolution boursière" loading="lazy">
                                         <div class="card-body news-card__body">
@@ -233,13 +245,12 @@
                                             <a class="news-card__action" href="#contact">Lire plus</a>
                                         </div>
                                     </article>
-                                </div>
+                                </div> --}}
                             </div>
                         </div> 
-
                         <div class="mt-4">
                             <div class="row g-4">
-                                <div class="col-12 col-lg-4 d-flex">
+                                {{-- <div class="col-12 col-lg-4 d-flex">
                                     <article class="card news-card w-100">
                                         <img class="news-card__image" src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=85" alt="Pièces et graphique de croissance" loading="lazy">
                                         <div class="card-body news-card__body">
@@ -268,7 +279,7 @@
                                             <a class="news-card__action" href="#contact">Lire plus</a>
                                         </div>
                                     </article>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

@@ -26,7 +26,7 @@ class PostSeeder extends Seeder
                 'content' => '<p>Le marché boursier en 2026 présente des opportunités uniques pour les investisseurs...</p>',
                 'status' => 'published',
                 'published_at' => now(),
-                'cover_image' => public_path('front/assets/images/news/post-1-conseil.png'),
+                'cover_image' => public_path() . '/front/assets/images/news/post-1.png',
             ],
             [
                 'post_category_id' => 2,
@@ -38,7 +38,7 @@ class PostSeeder extends Seeder
                 'content' => '<p>Investir peut sembler intimidant au début, mais avec les bonnes stratégies...</p>',
                 'status' => 'published',
                 'published_at' => now(),
-                'cover_image' => public_path('front/assets/images/news/post-2.png'),
+                'cover_image' => public_path() . '/front/assets/images/news/post-2.png',
             ],
             [
                 'post_category_id' => 3,
@@ -50,16 +50,16 @@ class PostSeeder extends Seeder
                 'content' => '<p>Le marché financier est en constante évolution, et il est crucial de rester informé...</p>',
                 'status' => 'published',
                 'published_at' => now(),
-                'cover_image' => public_path() . '/front/assets/images/news/post-3.png',
+                'cover_image' => public_path() . '/front/assets/images/news/post-4.png',
             ],
         ];
 
-        foreach ($posts as $post) {
-            $data = collect($post)->except(['cover_image'])->toArray();
-            $post = Post::create($data);
+        foreach ($posts as $postData) {
+            $coverImage = $postData['cover_image'];
+            $post = Post::create(collect($postData)->except('cover_image')->toArray());
             
-            if (isset($post['cover_image'])) {
-                $post->addMedia($post['cover_image'])
+            if (is_file($coverImage)) {
+                $post->addMedia($coverImage)
                     ->preservingOriginal()
                     ->toMediaCollection('post_images');
             }

@@ -1,7 +1,7 @@
     <header>
         <div class="topbar">
             <div class="container d-flex justify-content-between align-items-center">
-                <a class="topbar-link topbar-link--client" href="{{ route('front.contact') }}">Devenir client</a>
+                <a class="topbar-link topbar-link--client" href="{{ route('front.devenir-client') }}">Devenir client</a>
                 <div class="d-flex align-items-center gap-3">
                     {{-- <form action="">
                         <select class="topbar-link" id="language-select" class="form-select form-select-sm" aria-label="Choisir la langue">

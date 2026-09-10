@@ -27,13 +27,53 @@
         }
 
         .service-details-section__copy {
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.6;
         }
 
         .marge {
             margin-top: 80px;
             margin-bottom: 70px;
+        }
+
+
+        .welcome-hero__action {
+            display: inline-flex;
+            min-width: 270px;
+            min-height: 54px;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 28px;
+            background: var(--impaxis-orange);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background-color .2s ease, transform .2s ease;
+        }
+
+        .welcome-hero__action:hover,
+        .welcome-hero__action:focus {
+            background: #d98200;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 767.98px) {
+            .welcome-hero__action {
+                width: 100%;
+                max-width: 270px;
+            }
+        }
+
+        .parent {
+            display: flex;         /* Active le mode Flexbox */
+            flex-direction: column;   /* Aligne les deux div enfants côte à côte (horizontal) */
+            
+            padding-top: 20px;     /* Espace en haut du parent */
+            padding-bottom: 0px;  /* Espace en bas du parent */
+            
+            gap: 15px;             /* Crée l'espace au milieu (entre les deux div) */
         }
     </style>
 @endpush
@@ -82,14 +122,18 @@
 
     <section class="service-details-section marge" id="service-details" aria-labelledby="service-details-title">
         <div class="container">
-            <div class="row">
+            <div class="row" style="">
                 <div class="col-12 col-md-6">
                     <img class="service-details-section__image" src="{{ $service->getFirstMediaUrl('service_images') }}" alt="{{ $service->title }}" loading="lazy">
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-6 parent" style="">
                     <div class="service-details-section__content">
                         {{-- <h2 class="service-details-section__title" id="service-details-title">{{ $service->title }}</h2> --}}
                         <p class="service-details-section__copy">{!! nl2br(e($service->description)) !!}</p>
+                        {{-- <a class="welcome-hero__action" href="{{ route('front.contact') }}">En savoir plus</a> --}}
+                    </div>
+                    <div>
+                        <a class="welcome-hero__action" href="{{ route('front.contact') }}">Contact-nous</a>
                     </div>
                 </div>
             </div>

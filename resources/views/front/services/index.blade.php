@@ -318,8 +318,6 @@
                     </div>
                 @endforeach
             </div>
-                
-
 
 
             {{-- <div class="row g-3">

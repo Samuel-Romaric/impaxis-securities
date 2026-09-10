@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;   
 use Illuminate\Http\Request;
 use App\Models\Service;
 
@@ -12,7 +13,9 @@ class ManagerController extends Controller
     public function index()
     {
         $services = Service::all();
-        return view('front.welcome', compact('services'));
+        $articles = Post::where('status', 'published')->get();
+        
+        return view('front.welcome', compact('services', 'articles'));
     }
 
     public function notreSociete()
@@ -23,7 +26,7 @@ class ManagerController extends Controller
     public function services()
     {
         $services = Service::all();
-        return view('front.services', compact('services'));
+        return view('front.services.index', compact('services'));
     }
 
     public function marches()
@@ -33,7 +36,9 @@ class ManagerController extends Controller
 
     public function actualites()
     {
-        return view('front.actualites');
+        $articles = Post::where('status', 'published')->get();
+
+        return view('front.actualites.index', compact('articles'));
     }
 
     public function documentation()
@@ -49,5 +54,9 @@ class ManagerController extends Controller
     public function contact()
     {
         return view('front.contact');
+    }
+
+    public function devenirClient() {
+        return view('front.devenir-client');
     }
 }

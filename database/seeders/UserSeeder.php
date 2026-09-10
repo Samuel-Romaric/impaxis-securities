@@ -30,6 +30,7 @@ class UserSeeder extends Seeder
                 // 'role' => 'user',
             ],
         ];
+        
         foreach ($users as $user) {
             $data = collect($user)->except(['avatar'])->toArray();
             $user = User::create($data);

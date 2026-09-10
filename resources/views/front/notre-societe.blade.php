@@ -237,6 +237,14 @@
             border-radius: 8px;
         }
 
+        .animme_border {
+            border: 1px solid #dce5f3;
+        }
+
+        .animme_border:hover{
+            border: 1px solid var(--impaxis-orange);
+        }
+
         @media (max-width: 767.98px) {
             .values-section {
                 padding: 56px 0 72px;
@@ -401,7 +409,7 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-12 col-lg-6 d-flex">
-                    <article class="card mission-card w-100">
+                    <article class="card mission-card w-100 animme_border">
                         <div class="card-body mission-card__body">
                             <span class="mission-card__icon" aria-hidden="true"><i class="bi bi-crosshair"></i></span>
                             <h2 class="mission-card__title">Notre mission</h2>
@@ -411,7 +419,7 @@
                 </div>
 
                 <div class="col-12 col-lg-6 d-flex">
-                    <article class="card mission-card w-100">
+                    <article class="card mission-card w-100 animme_border">
                         <div class="card-body mission-card__body">
                             <span class="mission-card__icon" aria-hidden="true"><i class="bi bi-eye"></i></span>
                             <h2 class="mission-card__title">Notre vision</h2>
@@ -481,7 +489,7 @@
                         <p class="investment-cta__copy">Nos équipes sont à votre disposition pour vous accompagner dans vos opérations financières et stratégies d’investissement.</p>
                         <div class="investment-cta__actions">
                             <a class="investment-cta__action" href="{{ route('front.contact') }}#contact">Nous contacter</a>
-                            <a class="investment-cta__action investment-cta__action--primary" href="{{ route('front.contact') }}">Devenir client</a>
+                            <a class="investment-cta__action investment-cta__action--primary" href="{{ route('front.devenir-client') }}">Devenir client</a>
                         </div>
                     </div>
                 </div>

@@ -30,7 +30,7 @@
                 <div class="footer-column col-md-2 col-lg-2">
                     <h2 class="footer-heading">Accès rapide</h2>
                     <ul class="footer-links">
-                        <li><a href="{{ route('front.contact') }}">Devenir client</a></li>
+                        <li><a href="{{ route('front.devenir-client') }}">Devenir client</a></li>
                         <li><a href="{{ route('front.contact') }}">Accès client</a></li>
                         <li><a href="{{ route('front.faq') }}">FAQ</a></li>
                         <li><a href="{{ route('front.contact') }}">Service client</a></li>

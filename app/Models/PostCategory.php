@@ -20,9 +20,9 @@ class PostCategory extends Model
     ];
 
     /**
-     * Une catégorie possède plusieurs articles.
+     * Une catégorie possède plusieurs articles (posts).
      */
-    public function articles(): HasMany
+    public function posts(): HasMany
     {
         return $this->hasMany(Post::class);
     }

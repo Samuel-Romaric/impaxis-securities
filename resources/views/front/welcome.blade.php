@@ -717,7 +717,7 @@
                 investir en bourse n’a jamais<br>
                 été aussi simple
             </h1>
-            <a class="welcome-hero__action" href="#services">En savoir plus</a>
+            <a class="welcome-hero__action" href="{{ route('front.notre-societe') }}">En savoir plus</a>
         </div>
     </section>
 
@@ -1022,75 +1022,24 @@
 
             <div id="news-carousel" class="carousel slide news-carousel" data-bs-ride="carousel" data-bs-interval="6000">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="row g-4">
-                            <div class="col-12 col-lg-4 d-flex">
-                                <article class="card news-card w-100">
-                                    <img class="news-card__image" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=85" alt="Graphique d’évolution boursière" loading="lazy">
-                                    <div class="card-body news-card__body">
-                                        <span class="news-card__category">Bourse</span>
-                                        <h3 class="news-card__title">Découvrez les dernières évolutions des indices boursiers et les prévisions ...</h3>
-                                        <a class="news-card__action" href="#contact">Lire plus</a>
+                    @foreach ($articles->chunk(3) as $articleGroup)
+                        <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                            <div class="row g-4">
+                                @foreach ($articleGroup as $article)
+                                    <div class="col-12 col-lg-4 d-flex">
+                                        <article class="card news-card w-100">
+                                            <img class="news-card__image" src="{{ asset($article->getFirstMediaUrl('post_images')) }}" alt="{{ $article->title }}" loading="lazy">
+                                            <div class="card-body news-card__body">
+                                                <span class="news-card__category">{{ $article->category->name }}</span>
+                                                <h3 class="news-card__title">{{ $article->title }}</h3>
+                                                <a class="news-card__action" href="{{ route('front.actualite.show', ['slug' => $article->slug]) }}">Lire plus</a>
+                                            </div>
+                                        </article>
                                     </div>
-                                </article>
-                            </div>
-                            <div class="col-12 col-lg-4 d-flex">
-                                <article class="card news-card w-100">
-                                    <img class="news-card__image" src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=85" alt="Documents d’analyse financière" loading="lazy">
-                                    <div class="card-body news-card__body">
-                                        <span class="news-card__category">Investissement</span>
-                                        <h3 class="news-card__title">Nos conseils pratiques pour équilibrer vos investissements et minimiser...</h3>
-                                        <a class="news-card__action" href="#contact">Lire plus</a>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-12 col-lg-4 d-flex">
-                                <article class="card news-card w-100">
-                                    <img class="news-card__image" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=85" alt="Professionnelle analysant les marchés financiers" loading="lazy">
-                                    <div class="card-body news-card__body">
-                                        <span class="news-card__category">Marchés financiers</span>
-                                        <h3 class="news-card__title">Analyse des secteurs porteurs et des opportunités d’investissement sur les...</h3>
-                                        <a class="news-card__action" href="#contact">Lire plus</a>
-                                    </div>
-                                </article>
+                                @endforeach
                             </div>
                         </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="row g-4">
-                            <div class="col-12 col-lg-4 d-flex">
-                                <article class="card news-card w-100">
-                                    <img class="news-card__image" src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=85" alt="Pièces et graphique de croissance" loading="lazy">
-                                    <div class="card-body news-card__body">
-                                        <span class="news-card__category">Finance</span>
-                                        <h3 class="news-card__title">Comprendre les tendances économiques qui influencent vos placements...</h3>
-                                        <a class="news-card__action" href="#contact">Lire plus</a>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-12 col-lg-4 d-flex">
-                                <article class="card news-card w-100">
-                                    <img class="news-card__image" src="{{ asset('front/assets/images/news/new-2-conseil.jpg') }}" alt="Réunion autour d'une stratégie financière" loading="lazy">
-                                    <div class="card-body news-card__body">
-                                        <span class="news-card__category">Conseil</span>
-                                        <h3 class="news-card__title">Les bonnes pratiques pour construire une stratégie patrimoniale durable...</h3>
-                                        <a class="news-card__action" href="#contact">Lire plus</a>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-12 col-lg-4 d-flex">
-                                <article class="card news-card w-100">
-                                    <img class="news-card__image" src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&amp;fit=crop&amp;w=800&amp;h=450&amp;q=85" alt="Tablette affichant des données de marché" loading="lazy">
-                                    <div class="card-body news-card__body">
-                                        <span class="news-card__category">Actualité BRVM</span>
-                                        <h3 class="news-card__title">Les rendez-vous et indicateurs à suivre sur le marché régional...</h3>
-                                        <a class="news-card__action" href="#contact">Lire plus</a>
-                                    </div>
-                                </article>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
                 <button class="carousel-control-prev news-carousel__control news-carousel__control--prev" type="button" data-bs-target="#news-carousel" data-bs-slide="prev" aria-label="Actualités précédentes">
