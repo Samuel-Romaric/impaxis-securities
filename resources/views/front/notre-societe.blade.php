@@ -489,7 +489,7 @@
                         <p class="investment-cta__copy">Nos équipes sont à votre disposition pour vous accompagner dans vos opérations financières et stratégies d’investissement.</p>
                         <div class="investment-cta__actions">
                             <a class="investment-cta__action" href="{{ route('front.contact') }}#contact">Nous contacter</a>
-                            <a class="investment-cta__action investment-cta__action--primary" href="{{ route('front.devenir-client') }}">Devenir client</a>
+                            <a class="investment-cta__action investment-cta__action--primary" href="https://docuseal.com/d/4buk6GcKhzBLXb" target="_blank">Devenir client</a>
                         </div>
                     </div>
                 </div>

@@ -56,7 +56,7 @@ class ManagerController extends Controller
         return view('front.contact');
     }
 
-    public function devenirClient() {
-        return view('front.devenir-client');
-    }
+    // public function devenirClient() {
+    //     return view('front.devenir-client');
+    // }
 }

@@ -24,4 +24,4 @@ Route::get('actualites/{slug}', [ActualiteController::class, 'actualiteShow'])->
 Route::get('/documentation', [ManagerController::class, 'documentation'])->name('documentation');
 Route::get('/faq', [ManagerController::class, 'faq'])->name('faq');
 Route::get('/contact', [ManagerController::class, 'contact'])->name('contact');
-Route::get('devenir-client', [ManagerController::class, 'devenirClient'])->name('devenir-client');
+// Route::get('devenir-client', [ManagerController::class, 'devenirClient'])->name('devenir-client');
