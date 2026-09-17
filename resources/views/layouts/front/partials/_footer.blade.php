@@ -63,3 +63,35 @@
             </div>
         </div>
     </footer>
+
+    <script src="{{ asset('/front/js/jquery-4.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            var localeRoute = "{{ route('front.language.switch') }}";
+
+            $('#locale-select').on('change', function () {
+                var locale = $(this).val();
+                var currentPath = window.location.pathname;
+
+                $.ajax({
+                    // url: '/language/switch',
+                    url: localeRoute,
+                    method: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr('content'),
+                        locale: locale,
+                        current_path: currentPath
+                    },
+                    success: function (response) {
+                        window.location.href = response.redirect;
+                    },
+                    error: function () {
+                        alert("Une erreur est survenue lors du changement de langue.");
+                    }
+                });
+            });
+        });
+
+    </script>

@@ -37,6 +37,24 @@
             background: var(--impaxis-ink);
         }
 
+        .language-switcher > button, select {
+            text-transform: none;
+            background: #090909;
+            border: none;
+            color: white;
+        }
+
+        .language-switcher > button, select:focus {
+            text-transform: none;
+            background: #090909;
+            border: 1px solid #090909;
+            color: white;
+        }
+
+        .language-switcher > button, select:hover{
+            cursor: pointer;
+        }
+
         .topbar-link {
             display: inline-flex;
             align-items: center;

@@ -9,7 +9,13 @@
                             <option value="en">English</option>
                         </select>
                     </form> --}}
-                    <a class="topbar-link" href="#" aria-label="Choisir la langue">Français <span class="ms-1" aria-hidden="true">&#9662;</span></a>
+                    <div class="language-switcher topbar-link">
+                        <select id="locale-select">
+                            <option value="fr" {{ app()->getLocale() === 'fr' ? 'selected' : '' }}><span>🇫🇷</span> Français</option>
+                            <option value="en" {{ app()->getLocale() === 'en' ? 'selected' : '' }}><span>🇬🇧</span> English</option>
+                        </select>
+                    </div>
+                    {{-- <a class="topbar-link" href="#" aria-label="Choisir la langue">Français <span class="ms-1" aria-hidden="true">&#9662;</span></a> --}}
                     <a class="topbar-link topbar-link--login" href="#">Accès client</a>
                 </div>
             </div>
@@ -25,7 +31,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="main-navigation">
                     <ul class="navbar-nav align-items-lg-center"> 
-                        <li class="nav-item"><a class="nav-link  {{ activeRoute('front.welcome') }}" aria-current="page" href="{{ url('/') }}">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link  {{ activeRoute('front.welcome') }}" aria-current="page" href="{{ route('front.welcome') }}">{{ __('accueil.menu-accueil') }}</a></li>
                         <li class="nav-item"><a class="nav-link {{ activeRoute('front.notre-societe') }}" href="{{ route('front.notre-societe') }}">Notre Société</a></li>
                         <li class="nav-item"><a class="nav-link {{ activeRoute('front.services') }}" href="{{ route('front.services') }}">Services</a></li>
                         <li class="nav-item"><a class="nav-link {{-- activeRoute('front.marches') --}}" href="javascript:void(0){{-- route('front.marches') --}}">Marchés</a></li>

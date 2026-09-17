@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -11,9 +12,28 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which contains the "web" middleware group. Now create something great!
 |
 */
-Route::middleware(['web'])->name('front.')->group(function () {
-    require __DIR__.'/front/front.php';
+/* Front office Route */
+Route::prefix('{locale}')
+    ->where(['locale' => 'fr|en'])
+    ->middleware(['web', 'setLocale'])
+    ->name('front.')->group(function () {
+        require __DIR__.'/front/front.php';
 });
 
+// Redirection de la racine vers la langue active (session ou défaut)
+Route::get('/', function () {
+    $locale = session('locale', config('app.fallback_locale'));
+    return redirect("/{$locale}");
+});
 
-require __DIR__.'/auth.php';
+// Route pour changer la langue (appelée en AJAX/jQuery)
+Route::post('/language/switch', [LanguageController::class, 'switch'])
+    ->name('front.language.switch');
+
+
+    
+/* Backoffice Route */
+Route::name('admin.')->group(function () {
+    require __DIR__.'/auth.php';
+});
+
