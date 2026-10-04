@@ -211,7 +211,7 @@
                                             <div class="card-body news-card__body">
                                                 <span class="news-card__category">{{ $article->category->name }}</span>
                                                 <h3 class="news-card__title">{{ $article->title }}</h3>
-                                                <a class="news-card__action" href="{{ route('front.actualite.show', ['slug' => $article->slug]) }}">Lire plus</a>
+                                                <a class="news-card__action" href="{{ route('front.actualite.show', ['post_id' => $article->trans_post_id, 'slug' => $article->slug]) }}">Lire plus</a>
                                             </div>
                                         </article>
                                     </div>

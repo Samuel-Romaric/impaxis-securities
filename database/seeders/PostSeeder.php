@@ -19,45 +19,65 @@ class PostSeeder extends Seeder
             [
                 'post_category_id' => 1,
                 'author_id' => 1,
-                'title' => 'Découvrez les dernières évolutions des indices boursiers et les prévisions ...',
-                'slug' => Str::slug('Découvrez les dernières évolutions des indices boursiers et les prévisions ...'),
+                'title' => 'Projet Swami - Green Bond_Webinar du 13.07.26',
+                'slug' => Str::slug('Projet Swami - Green Bond_Webinar du 13.07.26'),
+                'lang' => 'fr',
+                'trans_post_id' => 1,
                 'excerpt' => '',
-                'short_description' => 'Restez informé sur les tendances du marché et les opportunités d\'investissement.',
-                'content' => '<p>Le marché boursier en 2026 présente des opportunités uniques pour les investisseurs...</p>',
+                'short_description' => "Des obligations vertes ancrées dans la réalité des sols",
+                'content' => '<p>Aucun contenu disponible</p>',
                 'status' => 'published',
                 'published_at' => now(),
-                'cover_image' => public_path() . '/front/assets/images/news/post-1.png',
+                'cover_image' => public_path() . '/front/assets/images/news/obligation-actu.png',
             ],
-            [
-                'post_category_id' => 2,
-                'author_id' => 1,
-                'title' => 'Nos conseils pratiques pour équilibrer vos investissements et minimiser...',
-                'slug' => Str::slug('Nos conseils pratiques pour équilibrer vos investissements et minimiser...'),
-                'excerpt' => '',
-                'short_description' => 'Découvrez nos stratégies pour diversifier votre portefeuille et maximiser vos rendements.',
-                'content' => '<p>Investir peut sembler intimidant au début, mais avec les bonnes stratégies...</p>',
-                'status' => 'published',
-                'published_at' => now(),
-                'cover_image' => public_path() . '/front/assets/images/news/post-2.png',
-            ],
-            [
-                'post_category_id' => 3,
-                'author_id' => 1,
-                'title' => 'Analyse des secteurs porteurs et des opportunités d’investissement sur les...',
-                'slug' => Str::slug('Analyse des secteurs porteurs et des opportunités d’investissement sur les...'),
-                'excerpt' => '',
-                'short_description' => 'Explorez les secteurs en croissance et identifiez les meilleures opportunités pour vos investissements.',
-                'content' => '<p>Le marché financier est en constante évolution, et il est crucial de rester informé...</p>',
-                'status' => 'published',
-                'published_at' => now(),
-                'cover_image' => public_path() . '/front/assets/images/news/post-4.png',
-            ],
+            // [
+            //     'post_category_id' => 1,
+            //     'author_id' => 1,
+            //     'title' => 'Découvrez les dernières évolutions des indices boursiers et les prévisions ...',
+            //     'slug' => Str::slug('Découvrez les dernières évolutions des indices boursiers et les prévisions ...'),
+            //     'lang' => 'fr',
+            //     'trans_post_id' => 2,
+            //     'excerpt' => '',
+            //     'short_description' => 'Restez informé sur les tendances du marché et les opportunités d\'investissement.',
+            //     'content' => '<p>Le marché boursier en 2026 présente des opportunités uniques pour les investisseurs...</p>',
+            //     'status' => 'published',
+            //     'published_at' => now(),
+            //     'cover_image' => public_path() . '/front/assets/images/news/post-1.png',
+            // ],
+            // [
+            //     'post_category_id' => 2,
+            //     'author_id' => 1,
+            //     'title' => 'Nos conseils pratiques pour équilibrer vos investissements et minimiser...',
+            //     'slug' => Str::slug('Nos conseils pratiques pour équilibrer vos investissements et minimiser...'),
+            //     'excerpt' => '',
+            //     'short_description' => 'Découvrez nos stratégies pour diversifier votre portefeuille et maximiser vos rendements.',
+            //     'content' => '<p>Investir peut sembler intimidant au début, mais avec les bonnes stratégies...</p>',
+            //     'status' => 'published',
+            //     'published_at' => now(),
+            //     'cover_image' => public_path() . '/front/assets/images/news/post-2.png',
+            // ],
+            // [
+            //     'post_category_id' => 3,
+            //     'author_id' => 1,
+            //     'title' => 'Analyse des secteurs porteurs et des opportunités d’investissement sur les...',
+            //     'slug' => Str::slug('Analyse des secteurs porteurs et des opportunités d’investissement sur les...'),
+            //     'excerpt' => '',
+            //     'short_description' => 'Explorez les secteurs en croissance et identifiez les meilleures opportunités pour vos investissements.',
+            //     'content' => '<p>Le marché financier est en constante évolution, et il est crucial de rester informé...</p>',
+            //     'status' => 'published',
+            //     'published_at' => now(),
+            //     'cover_image' => public_path() . '/front/assets/images/news/post-4.png',
+            // ],
         ];
 
         foreach ($posts as $postData) {
             $coverImage = $postData['cover_image'];
             $post = Post::create(collect($postData)->except('cover_image')->toArray());
             
+            if (is_null($post->trans_post_id)) {
+                $post->update(['trans_post_id' => $post->id]);
+            }
+
             if (is_file($coverImage)) {
                 $post->addMedia($coverImage)
                     ->preservingOriginal()

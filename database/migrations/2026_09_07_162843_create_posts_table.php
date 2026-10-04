@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
 
-            // $table->string('lang')->default('fr');
-            // $table->unsignedBigInteger('trans_post_id')->nullable();
+            $table->string('lang')->default('fr');
+            $table->unsignedBigInteger('trans_post_id')->nullable();
 
             $table->text('excerpt')->nullable();
             $table->string('short_description')->nullable();

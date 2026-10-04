@@ -7,7 +7,7 @@
         .welcome-hero {
             position: relative;
             display: flex;
-            min-height: min(640px, calc(100vh - 188px));
+            min-height: min(650px, calc(110vh - 198px));
             align-items: center;
             overflow: hidden;
             background-color: #10232d;
@@ -131,6 +131,11 @@
 
         .history-section__list li {
             padding-left: 3px;
+        }
+
+        .history-section__list li::marker {
+            color: #3862aa;
+            font-size: 16px;
         }
 
         .history-section__list li + li {
@@ -713,9 +718,11 @@
     <section class="welcome-hero" aria-labelledby="welcome-hero-title">
         <div class="container welcome-hero__content" style="padding-top: 100px; padding-bottom: 120px;">
             <h1 class="welcome-hero__title py-2" id="welcome-hero-title">
-                Avec IMPAXIS SECURITIES,<br>
+                IMPAXIS - Ancrée en Afrique, <br>
+                connectée au monde.
+                {{-- Avec IMPAXIS SECURITIES,<br>
                 investir en bourse n’a jamais<br>
-                été aussi simple
+                été aussi simple --}}
             </h1>
             <a class="welcome-hero__action" href="{{ route('front.notre-societe') }}">En savoir plus</a>
         </div>
@@ -725,7 +732,7 @@
         <div class="container history-section__inner">
             <img
                 class="history-section__image"
-                src="{{ asset('front/assets/images/notre-histoire.png') }}"
+                src="{{ asset('front/assets/images/notre_histoire.png') }}"
                 alt="Vue aérienne d'un quartier d'affaires moderne"
                 loading="lazy"
             >
@@ -756,8 +763,8 @@
                         <article class="card service-card {{ $service->class }} w-100">
                             <div class="card-body service-card__body">
                                 <div class="service-card__top">
-                                    <img class="service-card__image" src="{{ $service->getFirstMediaUrl('service_images') }}" alt="{{ $service->title }}" loading="lazy">
-                                    <a class="service-card__link" href="{{ route('front.service.details', $service->slug) }}" aria-label="Découvrir le {{ $service->title }}">&#8599;</a>
+                                    <img class="service-card__image" src="{{ $service->getCoverFullUrl() }}" alt="{{ $service->title }}" loading="lazy">
+                                    <a class="service-card__link" href="{{ route('front.service.details', ['service_id' => $service->translate_id, 'slug' => $service->slug]) }}" aria-label="Découvrir le {{ $service->title }}">&#8599;</a>
                                 </div>
                                 <h3 class="service-card__title">{!! nl2br(e($service->title)) !!}</h3>
                                 <p class="service-card__copy">{{ $service->short_description }}</p>
@@ -766,117 +773,10 @@
                     </div>
                 @endforeach
             </div>
-            {{-- <div class="row g-3">
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-1-conseil.png') }}" alt="Réunion de professionnels" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir le conseil pour l’accès au marché financier">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Conseil pour l’accès au<br>marché financier</h3>
-                            <p class="service-card__copy">Nous accompagnons les entreprises dans la mobilisation de ressources, l’introduction en bourse et la structuration financière, de l’analyse à la cotation sur le marché.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card service-card--blue w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-2-recherche.png') }}" alt="Analyse de données financières" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir l’analyse et la recherche financière">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Analyse &amp; Recherche<br>Financière</h3>
-                            <p class="service-card__copy">Impaxis Securities propose des analyses financières et recommandations d’investissement pour aider ses clients à mieux saisir les opportunités du marché, notamment sur la BRVM.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-3-conseil.png') }}" alt="Conseil entre professionnels" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir le conseil en placement">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Conseil en Placement</h3>
-                            <p class="service-card__copy">Nous accompagnons nos clients dans la définition de stratégies d’investissement adaptées à leurs objectifs et à leur profil de risque.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card service-card--blue w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-4-opcvm.png') }}" alt="Pièces et graphique financier" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir la mise en place d’OPCVM">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Mise en place<br>d’OPCVM</h3>
-                            <p class="service-card__copy">Impaxis Securities accompagne ses clients dans la création et la gestion d’OPCVM (FCP et SICAV), ainsi que dans la conservation et l’administration des opérations.</p>
-                        </div>
-                    </article>
-                </div>
-            </div> --}}
-
-            {{-- <div class="row g-3 mt-3">
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card service-card--blue w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-5-placement.png') }}" alt="Réunion de professionnels" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir le conseil pour l’accès au marché financier">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Placement de Titres <br></h3>
-                            <p class="service-card__copy">Nous proposons à nos clients l’accès à différents instruments financiers et monétaires permettant de diversifier et optimiser leurs investissements.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-6-levees.png') }}" alt="Analyse de données financières" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir l’analyse et la recherche financière">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Levées de Capitaux</h3>
-                            <p class="service-card__copy">Impaxis Securities accompagne États, institutions et entreprises dans leurs opérations de levée de fonds via appels publics à l’épargne ou placements privés.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card service-card--blue w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-7-conservation.png') }}" alt="Conseil entre professionnels" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir le conseil en placement">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Conservation de Portefeuilles Titres </h3>
-                            <p class="service-card__copy">Nous assurons la conservation sécurisée des titres et la gestion des comptes de nos clients en relation avec le DC/BR. </p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-8-negociation.png') }}" alt="Pièces et graphique financier" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir la mise en place d’OPCVM">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Négociation de Valeurs Mobilières</h3>
-                            <p class="service-card__copy">En tant qu’intermédiaire agréé, Impaxis Securities exécute les ordres d’achat et de vente de titres avec un accès direct et en temps réel au marché de la BRVM.</p>
-                        </div>
-                    </article>
-                </div>
-            </div> --}}
         </div>
     </section>
 
-    <section class="app-section" id="bourse" aria-labelledby="app-section-title">
+    {{-- <section class="app-section" id="bourse" aria-labelledby="app-section-title">
         <div class="container app-section__inner">
             <img
                 class="app-section__image"
@@ -899,16 +799,30 @@
                 <a class="app-section__action" href="#contact">Télécharger l'application</a>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    <section class="references-section" id="references" aria-labelledby="reference-title" style="background: #ffffff; margin-top: 0px; padding-top: 10px; padding-bottom: 82px;">
+    <section class="references-section" id="references" aria-labelledby="reference-title" style="background: #ffffff; margin-top: 0px; padding-top: 80px; padding-bottom: 82px;">
         <div class="container">
             <h2 class="references-section__title" id="reference-title">Nos références</h2>
             <div class="row g-2">
+                @foreach ($reference as $item)
                 <div class="col-12 col-md-6 col-xl-3 d-flex">
                     <article class="card reference-card w-100">
                         <div class="card-body reference-card__body">
-                            <img class="reference-card__logo" src="{{ asset('front/assets/images/references/orange-sonatel.png') }}" alt="Orange Sonatel" loading="lazy">
+                            <img class="reference-card__logo" src="{{ $item->getCoverFullUrl() }}" alt="{{ $item->projet_title }}" loading="lazy">
+                            <h3 class="reference-card__amount">{{ $item->amount }} {{ $item->devise }}</h3>
+                            <p class="reference-card__operation">{{ $item->projet_title }}</p>
+                            <p class="reference-card__role">{{ $item->projet_chef }}</p>
+                            <p class="reference-card__year">{{ $item->periode }}</p>
+                        </div>
+                    </article>
+                </div>
+                @endforeach
+                
+                {{-- <div class="col-12 col-md-6 col-xl-3 d-flex">
+                    <article class="card reference-card w-100">
+                        <div class="card-body reference-card__body">
+                            <img class="reference-card__logo" src="{{ asset('front/assets/images/references/orange-sonatel.png') }}" alt="{{ $item->projet_title }} Orange Sonatel" loading="lazy">
                             <h3 class="reference-card__amount">100 milliards F CFA</h3>
                             <p class="reference-card__operation">Appel public à l’épargne - Sonatel</p>
                             <p class="reference-card__role">Arrangeur chef de file</p>
@@ -922,7 +836,7 @@
                             <img class="reference-card__logo" src="{{ asset('front/assets/images/references/bidc-ebid.png') }}" alt="BIDC" loading="lazy">
                             <h3 class="reference-card__amount">240 milliards F CFA</h3>
                             <p class="reference-card__operation">Appel public à l’épargne - GS Bond BIDC - EBID</p>
-                            <p class="reference-card__role">Arrangeur principal<br>chef de file</p>
+                            <p class="reference-card__role">Arrangeur principal - Chef de file</p>
                             <p class="reference-card__year">2021-2024</p>
                         </div>
                     </article>
@@ -945,7 +859,7 @@
                             <h3 class="reference-card__amount">15 milliards F CFA</h3>
                             <p class="reference-card__operation">Appel public à l’épargne - Fidelis Finance Cap25</p>
                             <p class="reference-card__role">Arrangeur chef de file</p>
-                            <p class="reference-card__year">2022</p>
+                            <p class="reference-card__year">2023</p>
                         </div>
                     </article>
                 </div>
@@ -959,8 +873,10 @@
                             <p class="reference-card__year">2023-2024</p>
                         </div>
                     </article>
-                </div>
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
+                </div> --}}
+
+
+                {{-- <div class="col-12 col-md-6 col-xl-3 d-flex">
                     <article class="card reference-card w-100">
                         <div class="card-body reference-card__body">
                             <img class="reference-card__logo" src="{{ asset('front/assets/images/references/nourmony.png') }}" alt="Nourmony" loading="lazy">
@@ -1011,7 +927,7 @@
                             <p class="reference-card__year">2021-2024</p>
                         </div>
                     </article>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -1028,11 +944,11 @@
                                 @foreach ($articleGroup as $article)
                                     <div class="col-12 col-lg-4 d-flex">
                                         <article class="card news-card w-100">
-                                            <img class="news-card__image" src="{{ asset($article->getFirstMediaUrl('post_images')) }}" alt="{{ $article->title }}" loading="lazy">
+                                            <img class="news-card__image" src="{{ asset($article->getCoverFullUrl()) }}" alt="{{ $article->title }}" loading="lazy">
                                             <div class="card-body news-card__body">
                                                 <span class="news-card__category">{{ $article->category->name }}</span>
                                                 <h3 class="news-card__title">{{ $article->title }}</h3>
-                                                <a class="news-card__action" href="{{ route('front.actualite.show', ['slug' => $article->slug]) }}">Lire plus</a>
+                                                <a class="news-card__action" href="{{ route('front.actualite.show', ['post_id' => $article->trans_post_id, 'slug' => $article->slug]) }}">Lire plus</a>
                                             </div>
                                         </article>
                                     </div>
@@ -1042,12 +958,15 @@
                     @endforeach
                 </div>
 
-                <button class="carousel-control-prev news-carousel__control news-carousel__control--prev" type="button" data-bs-target="#news-carousel" data-bs-slide="prev" aria-label="Actualités précédentes">
+                @if ($articles->count() > 3)
+                    <button class="carousel-control-prev news-carousel__control news-carousel__control--prev" type="button" data-bs-target="#news-carousel" data-bs-slide="prev" aria-label="Actualités précédentes">
                     <span class="news-carousel__icon news-carousel__icon--prev" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next news-carousel__control news-carousel__control--next" type="button" data-bs-target="#news-carousel" data-bs-slide="next" aria-label="Actualités suivantes">
-                    <span class="news-carousel__icon news-carousel__icon--next" aria-hidden="true"></span>
-                </button>
+                    </button>
+                    <button class="carousel-control-next news-carousel__control news-carousel__control--next" type="button" data-bs-target="#news-carousel" data-bs-slide="next" aria-label="Actualités suivantes">
+                        <span class="news-carousel__icon news-carousel__icon--next" aria-hidden="true"></span>
+                    </button>
+                @endif
+                
             </div>
         </div>
     </section>
@@ -1057,22 +976,6 @@
 
 @push('scripts')
     <script>
-        // Add any custom JavaScript here
-        // import http from 'k6/http';
-        // import { check, sleep } from 'k6';
-
-        // export const options = {
-        //     vus: 50,          // Virtual Users
-        //     duration: '1m',   // Test Duration
-        //     };
-
-        //     export default function () {
-        //     const res = http.get('https://k6.io');
-        //     check(res, {
-        //         'status is 200': (r) => r.status === 200,
-        //         'response time < 500ms': (r) => r.timings.duration < 500,
-        //     });
-        //     sleep(1);
-        // }
+       
     </script>
 @endpush

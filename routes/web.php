@@ -27,13 +27,19 @@ Route::get('/', function () {
 });
 
 // Route pour changer la langue (appelée en AJAX/jQuery)
-Route::post('/language/switch', [LanguageController::class, 'switch'])
-    ->name('front.language.switch');
+Route::post('/language/switch', [LanguageController::class, 'switch'])->name('front.language.switch');
 
-
-    
 /* Backoffice Route */
+// $appUrl = parse_url(config('app.url'), PHP_URL_HOST);
+// Route::domain('admin.' . $appUrl)->name('admin.')->group(function () {
 Route::name('admin.')->group(function () {
-    require __DIR__.'/auth.php';
+
+    Route::middleware(['guest'])->group(function () {
+        require __DIR__.'/auth.php';
+    });
+    
+    Route::middleware(['auth'])->group(function () {
+        require __DIR__.'/back/backoffice.php';
+    });
 });
 

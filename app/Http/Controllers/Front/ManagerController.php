@@ -3,19 +3,22 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use App\Models\Post;   
+use App\Models\Post;
+use App\Models\References;
 use Illuminate\Http\Request;
 use App\Models\Service;
 
 class ManagerController extends Controller
 {
     // 
-    public function index()
+    public function index(string $locale)
     {
-        $services = Service::all();
-        $articles = Post::where('status', 'published')->get();
+        $services = Service::where('lang', $locale)->where('status', 'published')->get();
+        $articles = Post::where('lang', $locale)->where('status', 'published')->get();
+        $reference = References::where('lang', $locale)->where('status', 'published')->get();
+        // dd($reference);
         
-        return view('front.welcome', compact('services', 'articles'));
+        return view('front.welcome', compact('services', 'articles', 'reference'));
     }
 
     public function notreSociete()
@@ -23,9 +26,10 @@ class ManagerController extends Controller
         return view('front.notre-societe');
     }
 
-    public function services()
+    public function services(string $locale)
     {
-        $services = Service::all();
+        $services = Service::where('lang', $locale)->where('status', 'published')->get();
+
         return view('front.services.index', compact('services'));
     }
 
@@ -34,9 +38,9 @@ class ManagerController extends Controller
         return view('front.marches');
     }
 
-    public function actualites()
+    public function actualites(string $locale)
     {
-        $articles = Post::where('status', 'published')->get();
+        $articles = Post::where('lang', $locale)->where('status', 'published')->get();
 
         return view('front.actualites.index', compact('articles'));
     }

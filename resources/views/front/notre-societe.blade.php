@@ -42,7 +42,7 @@
         .about-section__image {
             width: 100%;
             height: 100%;
-            min-height: 470px;
+            min-height: 40px; /* old value 400px */
             border-radius: 8px;
             object-fit: cover;
             object-position: center;
@@ -397,7 +397,14 @@
                     <div class="about-section__content">
                         <h2 class="about-section__title" id="about-section-title">Qui sommes-nous ?</h2>
                         <p class="about-section__copy">
-                            Impaxis Securities est la Société du groupe Impaxis dédiée aux activités de marché. Créée en 2004, Impaxis Securities est une Société de Gestion et d’Intermédiation (SGI) indépendante, agréée par le Conseil Régional de l’Epargne Publique et des Marchés Financiers (CREPMF) sous le n° SGI-020/2004. Impaxis Securities est membre de la BRVM (Bourse Régionale des Valeurs Mobilières). Impaxis Securities permet à ses clients d’intervenir sur le marché financier à la BRVM et sur le marché monétaire de l’UEMOA (Union Monétaire Ouest-Africaine). Impaxis Securities s’adresse à toute personne physique désireuse d’effectuer des placements financiers dans la zone UEMOA (Union Economique et Monétaire Ouest-Africaine) ; et à toute morale voulant investir sur les marchés financier et monétaire ou souhaitant y mobiliser des ressources. La clientèle d’Impaxis Securities est sous-régionale et internationale et comprend des personnes physiques, morales et des institutions publiques et privées qui évoluent dans différents secteurs d’activités : compagnies d’assurance, banques, établissements publics financiers, service public, fonds d’investissement, prestataires de service, immobilier, cabinets de conseil et d’audit, ...
+                            Impaxis Securities est la Société de Gestion et d'Intermédiation (SGI) du Groupe Impaxis, 
+                            créée en 2004 et agréée par le CREPMF (n°SGI-020/2004). Membre actif de la BRVM, nous facilitons 
+                            l'accès aux marchés financiers et monétaires de l'UEMOA pour les particuliers, les entreprises et 
+                            les institutions. Grâce à une combinaison unique d'expertise locale, d'indépendance et d'innovation 
+                            technologique, nous offrons à nos clients une expérience d'investissement moderne et sécurisée. 
+                            Que ce soit pour investir en bourse, structurer une levée de capitaux, ou optimiser la gestion 
+                            d'un portefeuille, nous vous accompagnons avec professionnalisme et proximité.
+                            {{-- Impaxis Securities est la Société du groupe Impaxis dédiée aux activités de marché. Créée en 2004, Impaxis Securities est une Société de Gestion et d’Intermédiation (SGI) indépendante, agréée par le Conseil Régional de l’Epargne Publique et des Marchés Financiers (CREPMF) sous le n° SGI-020/2004. Impaxis Securities est membre de la BRVM (Bourse Régionale des Valeurs Mobilières). Impaxis Securities permet à ses clients d’intervenir sur le marché financier à la BRVM et sur le marché monétaire de l’UEMOA (Union Monétaire Ouest-Africaine). Impaxis Securities s’adresse à toute personne physique désireuse d’effectuer des placements financiers dans la zone UEMOA (Union Economique et Monétaire Ouest-Africaine) ; et à toute morale voulant investir sur les marchés financier et monétaire ou souhaitant y mobiliser des ressources. La clientèle d’Impaxis Securities est sous-régionale et internationale et comprend des personnes physiques, morales et des institutions publiques et privées qui évoluent dans différents secteurs d’activités : compagnies d’assurance, banques, établissements publics financiers, service public, fonds d’investissement, prestataires de service, immobilier, cabinets de conseil et d’audit, ... --}}
                         </p>
                     </div>
                 </div>

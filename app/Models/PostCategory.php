@@ -26,4 +26,13 @@ class PostCategory extends Model
     {
         return $this->hasMany(Post::class);
     }
+
+    public function getStatus() 
+    {
+        if ($this->is_active) {
+            return 'Actif';
+        }
+
+        return 'Désactiver';
+    }
 }

@@ -308,8 +308,8 @@
                         <article class="card service-card {{ $service->class }} w-100">
                             <div class="card-body service-card__body">
                                 <div class="service-card__top">
-                                    <img class="service-card__image" src="{{ $service->getFirstMediaUrl('service_images') }}" alt="{{ $service->title }}" loading="lazy">
-                                    <a class="service-card__link" href="{{ route('front.service.details', $service->slug) }}" aria-label="Découvrir le {{ $service->title }}">&#8599;</a>
+                                    <img class="service-card__image" src="{{ $service->getCoverFullUrl() }}" alt="{{ $service->title }}" loading="lazy">
+                                    <a class="service-card__link" href="{{ route('front.service.details', ['service_id' => $service->translate_id, 'slug' => $service->slug]) }}" aria-label="Découvrir le {{ $service->title }}">&#8599;</a>
                                 </div>
                                 <h3 class="service-card__title">{!! nl2br(e($service->title)) !!}</h3>
                                 <p class="service-card__copy">{{ $service->short_description }}</p>
@@ -318,115 +318,6 @@
                     </div>
                 @endforeach
             </div>
-
-
-            {{-- <div class="row g-3">
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-1-conseil.png') }}" alt="Réunion de professionnels" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir le conseil pour l’accès au marché financier">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Conseil pour l’accès au<br>marché financier</h3>
-                            <p class="service-card__copy">Nous accompagnons les entreprises dans la mobilisation de ressources, l’introduction en bourse et la structuration financière, de l’analyse à la cotation sur le marché.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card service-card--blue w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-2-recherche.png') }}" alt="Analyse de données financières" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir l’analyse et la recherche financière">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Analyse &amp; Recherche<br>Financière</h3>
-                            <p class="service-card__copy">Impaxis Securities propose des analyses financières et recommandations d’investissement pour aider ses clients à mieux saisir les opportunités du marché, notamment sur la BRVM.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-3-conseil.png') }}" alt="Conseil entre professionnels" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir le conseil en placement">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Conseil en Placement</h3>
-                            <p class="service-card__copy">Nous accompagnons nos clients dans la définition de stratégies d’investissement adaptées à leurs objectifs et à leur profil de risque.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card service-card--blue w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-4-opcvm.png') }}" alt="Pièces et graphique financier" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir la mise en place d’OPCVM">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Mise en place<br>d’OPCVM</h3>
-                            <p class="service-card__copy">Impaxis Securities accompagne ses clients dans la création et la gestion d’OPCVM (FCP et SICAV), ainsi que dans la conservation et l’administration des opérations.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <div class="row g-3 mt-3">
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card service-card--blue w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-5-placement.png') }}" alt="Réunion de professionnels" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir le conseil pour l’accès au marché financier">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Placement de Titres <br></h3>
-                            <p class="service-card__copy">Nous proposons à nos clients l’accès à différents instruments financiers et monétaires permettant de diversifier et optimiser leurs investissements.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-6-levees.png') }}" alt="Analyse de données financières" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir l’analyse et la recherche financière">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Levées de Capitaux</h3>
-                            <p class="service-card__copy">Impaxis Securities accompagne États, institutions et entreprises dans leurs opérations de levée de fonds via appels publics à l’épargne ou placements privés.</p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card service-card--blue w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-7-conservation.png') }}" alt="Conseil entre professionnels" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir le conseil en placement">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Conservation de Portefeuilles Titres </h3>
-                            <p class="service-card__copy">Nous assurons la conservation sécurisée des titres et la gestion des comptes de nos clients en relation avec le DC/BR. </p>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-12 col-md-6 col-xl-3 d-flex">
-                    <article class="card service-card w-100">
-                        <div class="card-body service-card__body">
-                            <div class="service-card__top">
-                                <img class="service-card__image" src="{{ asset('front/assets/images/services/service-8-negociation.png') }}" alt="Pièces et graphique financier" loading="lazy">
-                                <a class="service-card__link" href="#contact" aria-label="Découvrir la mise en place d’OPCVM">&#8599;</a>
-                            </div>
-                            <h3 class="service-card__title">Négociation de Valeurs Mobilières</h3>
-                            <p class="service-card__copy">En tant qu’intermédiaire agréé, Impaxis Securities exécute les ordres d’achat et de vente de titres avec un accès direct et en temps réel au marché de la BRVM.</p>
-                        </div>
-                    </article>
-                </div>
-            </div> --}}
         </div>
     </section>
 

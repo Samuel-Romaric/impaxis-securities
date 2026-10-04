@@ -17,6 +17,8 @@ return Application::configure(basePath: dirname(__DIR__))
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
         ]);
 
+        $middleware->redirectGuestsTo(fn (Request $request) => route('admin.login'));
+
         $middleware->alias([
             'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
             'setLocale' => \App\Http\Middleware\SetLocale::class,

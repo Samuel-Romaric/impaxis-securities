@@ -22,7 +22,7 @@
                         <li><a href="{{ route('front.services') }}">Services</a></li>
                         <li><a href="{{ route('front.marches') }}">Marchés</a></li>
                         <li><a href="{{ route('front.actualites') }}">Actualités</a></li>
-                        <li><a href="{{ route('front.documentation') }}">Ressources</a></li>
+                        {{-- <li><a href="{{ route('front.documentation') }}">Ressources</a></li> --}}
                         <li><a href="{{ route('front.contact') }}">Contact</a></li>
                     </ul>
                 </div>
@@ -31,7 +31,7 @@
                     <h2 class="footer-heading">Accès rapide</h2>
                     <ul class="footer-links">
                         <li><a href="https://docuseal.com/d/4buk6GcKhzBLXb" target="_blank">Devenir client</a></li>
-                        <li><a href="{{ route('front.contact') }}">Accès client</a></li>
+                        <li><a href="https://boursenligne.impaxis-securities.com/" target="_blank">Connexion</a></li>
                         <li><a href="{{ route('front.faq') }}">FAQ</a></li>
                         <li><a href="{{ route('front.contact') }}">Service client</a></li>
                     </ul>
@@ -72,6 +72,31 @@
             var localeRoute = "{{ route('front.language.switch') }}";
 
             $('#locale-select').on('change', function () {
+
+                // var locale = $(this).val();
+                // var $switcher = $(this).closest('[data-article-switcher]');
+
+                // // Cas 1 : on est sur une page article avec des URLs de traduction connues
+                // if ($switcher.length) {
+                //     var directUrl = $switcher.data('locale-' + locale);
+
+                //     if (directUrl) {
+                //         window.location.href = directUrl;
+                //         return;
+                //     }
+
+                //     // Pas de traduction disponible : on informe l'utilisateur
+                //     // et on ne fait rien (ou on redirige vers la liste des articles)
+                //     alert(
+                //         locale === 'en'
+                //             ? 'This article is not available in English yet.'
+                //             : "Cet article n'est pas encore disponible en français."
+                //     );
+                //     // On remet le select sur la langue actuelle
+                //     $(this).val('{{ app()->getLocale() }}');
+                //     return;
+                // }
+
                 var locale = $(this).val();
                 var currentPath = window.location.pathname;
 

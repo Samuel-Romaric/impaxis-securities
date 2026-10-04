@@ -17,6 +17,12 @@ class PostCategorySeeder extends Seeder
         //
         $categories = [
             [
+                'name' => 'Webinaires',
+                'slug' => Str::slug('Webinaires'),
+                'description' => "Des Webinaires organisé pour un partage d'expériences",
+                'is_active' => true,
+            ],
+            [
                 'name' => 'Bourse',
                 'slug' => Str::slug('Bourse'),
                 'description' => 'Articles et analyses sur les marchés boursiers, les actions et les tendances économiques.',

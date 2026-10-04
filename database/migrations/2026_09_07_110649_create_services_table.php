@@ -17,6 +17,15 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('short_description')->nullable();
             $table->text('description')->nullable();
+            
+            $table->string('lang')->default('fr');
+            $table->unsignedBigInteger('translate_id')->nullable();
+            $table->enum('status', [
+                'draft',
+                'published'
+            ])->default('draft');
+            $table->timestamp('published_at')->nullable();
+            
             $table->string('class')->nullable();
             $table->timestamps();
         });

@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 class ActualiteController extends Controller
 {
     //
-    public function actualiteShow($slug) {
-        $article = Post::where('slug', $slug)->first();
+    public function actualiteShow(string $locale, int $post_id, string $slug)
+    {
+        $article = Post::where('lang', $locale)->where('trans_post_id', $post_id)->firstOrFail();
 
         return view('front.actualites.show', compact('article'));
     }

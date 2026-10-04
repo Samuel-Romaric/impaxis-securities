@@ -124,7 +124,7 @@
         <div class="container">
             <div class="row" style="">
                 <div class="col-12 col-md-6">
-                    <img class="service-details-section__image" src="{{ $service->getFirstMediaUrl('service_images') }}" alt="{{ $service->title }}" loading="lazy">
+                    <img class="service-details-section__image" src="{{ $service->getCoverFullUrl() }}" alt="{{ $service->title }}" loading="lazy">
                 </div>
                 <div class="col-12 col-md-6 parent" style="">
                     <div class="service-details-section__content">

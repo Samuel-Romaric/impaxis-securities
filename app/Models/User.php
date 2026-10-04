@@ -23,11 +23,13 @@ class User extends Authenticatable implements HasMedia
         'name',
         'email',
         'password',
+        'is_admin',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
+        'is_admin',
     ];
 
     /**
@@ -43,9 +45,28 @@ class User extends Authenticatable implements HasMedia
         ];
     }
 
+    public function addMediaCover(string $file): void 
+    {
+        $this->addMediaFromRequest($file)->toMediaCollection('avatar');
+    }
+
+    public function deleteMediaImage()
+    {
+        $this->getFirstMedia('avatar')->delete();
+    }
+
+    public function getCoverFullUrl() 
+    {
+        if (is_null($this->getFirstMedia('avatar'))) {
+            return asset('/front/assets/images/services/service-1-conseil.png');
+        }
+
+        return $this->getFirstMedia('service_cover')->getFullUrl();
+    }
+
     public function registerMediaCollections(): void
     {
-        $this->addMediaCollection('user_images')
+        $this->addMediaCollection('avatar')
             ->useFallbackUrl('/images/default-user.jpg')
             ->useFallbackPath(public_path('/images/default-user.jpg'))
             ->singleFile();

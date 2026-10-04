@@ -1,0 +1,54 @@
+    /* Custom styles for the footer */
+    /* Custom footer */
+    .custom-footer {
+        background-color: #232324; /* Fond noir */
+        color: #fff; /* Texte blanc */
+        padding: 50px 20px;
+        font-size: 0.9rem;
+        border-top: 1px solid #333; /* Bordure supérieure subtile si tu veux */
+        /* margin-top: auto; Pousse le footer vers le bas */
+    }
+    .footer-line {
+        border-top: 1px solid #fff; /* La ligne blanche au milieu */
+        margin: 40px 0; /* Espacement au-dessus et en dessous de la ligne */
+    }
+    .footer-left-content {
+        text-align: left;
+    }
+    .footer-left-content a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 10px; /* Espace entre les liens */
+    }
+    .footer-left-content a:hover {
+        text-decoration: underline;
+    }
+    .footer-right-content {
+        text-align: right;
+        display: flex;
+        justify-content: flex-end; /* Aligner à droite */
+        align-items: center;
+    }
+    .footer-right-content .linkedin-icon {
+        font-size: 1.2rem; /* Taille de l'icône */
+        margin-right: 8px; /* Espace entre l'icône et le texte */
+    }
+    .footer-right-content a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .footer-right-content a:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 767.98px) {
+        .footer-left-content,
+        .footer-right-content {
+            text-align: center; /* Centrer le texte sur les petits écrans */
+            justify-content: center; /* Centrer le contenu flex */
+        }
+        .footer-right-content {
+            margin-top: 15px; /* Espace entre les blocs sur mobile */
+        }
+    }
