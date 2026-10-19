@@ -12,7 +12,6 @@
             overflow: hidden;
             background-color: #10232d;
             background-image: linear-gradient(90deg, rgba(1, 13, 22, .88) 0%, rgba(1, 13, 22, .55) 47%, rgba(1, 13, 22, .12) 100%), url('{{ asset('front/assets/images/slide-2.jpg') }}');
-            /* background-image: linear-gradient(90deg, rgba(1, 13, 22, .88) 0%, rgba(1, 13, 22, .55) 47%, rgba(1, 13, 22, .12) 100%), url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2400&q=85'); */
             background-position: center;
             background-size: cover;
         }
@@ -720,9 +719,6 @@
             <h1 class="welcome-hero__title py-2" id="welcome-hero-title">
                 IMPAXIS - Ancrée en Afrique, <br>
                 connectée au monde.
-                {{-- Avec IMPAXIS SECURITIES,<br>
-                investir en bourse n’a jamais<br>
-                été aussi simple --}}
             </h1>
             <a class="welcome-hero__action" href="{{ route('front.notre-societe') }}">En savoir plus</a>
         </div>
@@ -746,7 +742,6 @@
                     <li>L’histoire d’une volonté de bâtir une famille unie, pluridisciplinaire, entreprenante, agile, respectueuse de tous et qui impacte son industrie et son environnement</li>
                     <li>L’histoire d’une communauté unie et sympathique soucieuse de l’écoute méticuleuse du client et l’élaboration de produits financiers à forte valeur ajoutée taille sur mesure.</li>
                 </ul>
-                {{-- <a class="history-section__action" href="#services">En savoir plus</a> --}}
                 <a class="history-section__action" href="{{ route('front.notre-societe') }}">En savoir plus</a>
             </div>
         </div>
@@ -805,7 +800,8 @@
         <div class="container">
             <h2 class="references-section__title" id="reference-title">Nos références</h2>
             <div class="row g-2">
-                @foreach ($reference as $item)
+                <img src="{{ asset('front/assets/images/references/ref-impaxis.png') }}" alt="" srcset="">
+                {{-- @foreach ($reference as $item)
                 <div class="col-12 col-md-6 col-xl-3 d-flex">
                     <article class="card reference-card w-100">
                         <div class="card-body reference-card__body">
@@ -817,7 +813,7 @@
                         </div>
                     </article>
                 </div>
-                @endforeach
+                @endforeach --}}
                 
                 {{-- <div class="col-12 col-md-6 col-xl-3 d-flex">
                     <article class="card reference-card w-100">

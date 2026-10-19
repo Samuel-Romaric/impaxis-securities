@@ -117,6 +117,15 @@ class Post extends Model implements HasMedia
         return $this->getFirstMedia('post_images')->getFullUrl();
     }
 
+    public function getDocumentFullUrl()  
+    {
+        if (is_null($this->getFirstMedia('post_documents'))) {
+            return asset('/front/assets/images/services/service-1-conseil.png');
+        }
+
+        return $this->getFirstMedia('post_documents')->getFullUrl();
+    }
+
     public function getStatus() {
         if ($this->status === 'published') {
             return 'Publier';
@@ -130,6 +139,11 @@ class Post extends Model implements HasMedia
         $this->addMediaCollection('post_images')
             ->useFallbackUrl('/images/default-post.jpg')
             ->useFallbackPath(public_path('/images/default-post.jpg'))
+            ->singleFile();
+
+        $this->addMediaCollection('post_documents')
+            ->useFallbackUrl('/documents/default-document.pdf')
+            ->useFallbackPath(public_path('/documents/default-document.pdf'))
             ->singleFile();
     }
 }

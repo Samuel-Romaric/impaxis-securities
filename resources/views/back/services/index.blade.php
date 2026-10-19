@@ -26,7 +26,7 @@
 <div class="panel">
     <div class="panel-header">
         <h2>Liste des articles</h2>
-        <a href="{{ route('admin.service.create') }}" class="btn btn-accent">
+        <a href="{{ route('admin.services.create') }}" class="btn btn-accent">
             <i class="bi bi-plus-lg"></i> Ajouter un service
         </a>
     </div>
@@ -53,8 +53,8 @@
             <button class="btn btn-impaxis" type="submit">Filtrer</button>
         </form>
 
-        <div class="table-responsive">
-            <table class="table table-admin">
+        <div class="">
+            <table class="table table-admin table-responsive">
                 <thead>
                     <tr>
                         <th>Couverture</th>
@@ -88,10 +88,10 @@
                                 </div>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('admin.service.edit', ['service_id' => $item->id, 'slug' => $item->slug]) }}" class="dropdown-item text-muted"><i class="bi bi-pen icon-r"></i> Modifier</a>
+                                        <a href="{{ route('admin.services.edit', ['service_id' => $item->id, 'slug' => $item->slug]) }}" class="dropdown-item text-muted"><i class="bi bi-pen icon-r"></i> Modifier</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('admin.service.translate', ['service_id' => $item->id, 'slug' => $item->slug]) }}" class="dropdown-item text-muted"><i class="bi bi-translate icon-r"></i> Traduire</a>
+                                        <a href="{{ route('admin.services.translate', ['service_id' => $item->id, 'slug' => $item->slug]) }}" class="dropdown-item text-muted"><i class="bi bi-reload icon-r"></i> Réinitialiser</a>
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><form action="{{ route('admin.service.delete') }}" method="POST" class="d-inline" onsubmit="return confirm('Supprimer cett catégorie ?')">

@@ -24,6 +24,7 @@ class User extends Authenticatable implements HasMedia
         'email',
         'password',
         'is_admin',
+        'is_blocked',
     ];
 
     protected $hidden = [
@@ -50,7 +51,7 @@ class User extends Authenticatable implements HasMedia
         $this->addMediaFromRequest($file)->toMediaCollection('avatar');
     }
 
-    public function deleteMediaImage()
+    public function deleteMediaImage() : void
     {
         $this->getFirstMedia('avatar')->delete();
     }
@@ -72,13 +73,41 @@ class User extends Authenticatable implements HasMedia
             ->singleFile();
     }
 
-    public function posts()
+    public function posts() : \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Post::class, 'author_id');
     }
 
-    public function Categories()
+    public function Categories() : \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(PostCategory::class, 'author_id');
+    }
+
+    public function isAdmin(): bool
+    {
+        if (is_null($this->is_admin)) {
+            return false;
+        }
+
+        return (bool) $this->is_admin;
+    }
+
+    public function getRole() : string
+    {
+        return $this->isAdmin() ? 'Administrateur' : 'Utilisateur';
+    }
+
+    public function isBlocked() : bool 
+    {
+        if (is_null($this->is_blocked)) {
+            return false;
+        }
+
+        return (bool) $this->is_blocked;
+    }
+
+    public function getStatus() : string
+    {
+        return $this->isBlocked() ? 'Actif' : 'Bloqué';
     }
 }

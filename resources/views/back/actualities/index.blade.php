@@ -53,8 +53,8 @@
             <button class="btn btn-impaxis" type="submit">Filtrer</button>
         </form>
 
-        <div class="table-responsive">
-            <table class="table table-admin">
+        <div class="">
+            <table class="table table-admin table-responsive">
                 <thead>
                     <tr>
                         <th>Couverture</th>

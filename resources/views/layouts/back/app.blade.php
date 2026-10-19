@@ -20,6 +20,7 @@
         <link href="{{ asset('/back/assets/libs/simplebar/dist/simplebar.min.css" rel="stylesheet') }}" />
         <link rel="stylesheet" href="{{ asset('/back/assets/css/theme.min.css') }}" />
         <link rel="stylesheet" href="{{ asset('/back/assets/css/admin.css') }}" />
+        {{-- <link rel="stylesheet" href="{{ asset('front/css/bootstrap-5.0.2/css/bootstrap.min.css') }}"> --}}
 
         <!-- Styles -->
         <style>

@@ -28,7 +28,7 @@ return new class extends Migration
             $table->unsignedBigInteger('trans_post_id')->nullable();
 
             $table->text('excerpt')->nullable();
-            $table->string('short_description')->nullable();
+            $table->text('short_description')->nullable();
             $table->longText('content');
 
             $table->enum('status', [

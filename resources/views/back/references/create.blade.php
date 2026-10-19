@@ -11,7 +11,7 @@
         <a href="{{ route('admin.references.all') }}" class="btn btn-outline-secondary btn-sm">Retour</a>
     </div>
     <div class="panel-body">
-        <form method="POST" action="{{ route('admin.reference.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.references.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="row g-3">
                 <div class="col-lg-8">

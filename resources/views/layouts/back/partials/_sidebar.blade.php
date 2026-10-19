@@ -13,21 +13,21 @@
                 </a>
 
                 <p class="nav-label">Contenu du site</p>
-                <a href="{{ route('admin.actualities.all') }}" class="nav-item {{ activeRoute('admin.actualities.all') }}">
+                <a href="{{ route('admin.actualities.all') }}" class="nav-item {{ activeRoute('admin.actualities.*') }}">
                     <i class="bi bi-newspaper"></i> Articles
                 </a>
-                <a href="{{ route('admin.actuality.categories.all') }}" class="nav-item {{ activeRoute('admin.actuality.categories.all') }}">
+                <a href="{{ route('admin.actuality.categories.all') }}" class="nav-item {{ activeRoute('admin.actuality.categories.*') }}">
                     <i class="bi bi-diagram-2"></i> Catégories
                 </a>
-                <a href="{{ route('admin.services.all') }}" class="nav-item {{ activeRoute('admin.services.all') }}">
+                <a href="{{ route('admin.services.all') }}" class="nav-item {{ activeRoute('admin.services.*') }}">
                     <i class="bi bi-briefcase"></i> Services
                 </a>
-                <a href="{{ route('admin.references.all') }}" class="nav-item {{ activeRoute('admin.references.all') }}">
+                <a href="{{ route('admin.references.all') }}" class="nav-item {{ activeRoute('admin.references.*') }}">
                     <i class="bi bi-flag"></i> Références
                 </a>
 
                 {{-- <p class="nav-label">Administration</p>
-                <a href="{{ route('admin.users.all') }}" class="nav-item activeRoute('admin.users.all') ">
+                <a href="{{ route('admin.users.all') }}" class="nav-item {{ activeRoute('admin.users.*') }}">
                     <i class="bi bi-people"></i> Utilisateurs
                 </a> --}}
                 {{-- <a href="#" class="nav-item ">

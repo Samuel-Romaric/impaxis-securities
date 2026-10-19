@@ -14,7 +14,7 @@ class ManagerController extends Controller
     public function index(string $locale)
     {
         $services = Service::where('lang', $locale)->where('status', 'published')->get();
-        $articles = Post::where('lang', $locale)->where('status', 'published')->get();
+        $articles = Post::where('lang', $locale)->where('status', 'published')->orderBy('published_at', 'desc')->get();
         $reference = References::where('lang', $locale)->where('status', 'published')->get();
         // dd($reference);
         
@@ -40,7 +40,7 @@ class ManagerController extends Controller
 
     public function actualites(string $locale)
     {
-        $articles = Post::where('lang', $locale)->where('status', 'published')->get();
+        $articles = Post::where('lang', $locale)->where('status', 'published')->orderBy('published_at', 'desc')->get();
 
         return view('front.actualites.index', compact('articles'));
     }

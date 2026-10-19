@@ -26,7 +26,7 @@
 <div class="panel">
     <div class="panel-header">
         <h2>Liste des références</h2>
-        <a href="{{ route('admin.reference.create') }}" class="btn btn-accent">
+        <a href="{{ route('admin.references.create') }}" class="btn btn-accent">
             <i class="bi bi-plus-lg"></i> Ajouter
         </a>
     </div>
@@ -88,13 +88,13 @@
                                 </div>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('admin.reference.edit', ['ref_id' => $item->id, 'slug' => $item->slug]) }}" class="dropdown-item text-muted"><i class="bi bi-pen icon-r"></i> Modifier</a>
+                                        <a href="{{ route('admin.references.edit', ['ref_id' => $item->id, 'slug' => $item->slug]) }}" class="dropdown-item text-muted"><i class="bi bi-pen icon-r"></i> Modifier</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('admin.reference.translate', ['ref_id' => $item->id, 'slug' => $item->slug]) }}" class="dropdown-item text-muted"><i class="bi bi-translate icon-r"></i> Traduire</a>
+                                        <a href="{{ route('admin.references.translate', ['ref_id' => $item->id, 'slug' => $item->slug]) }}" class="dropdown-item text-muted"><i class="bi bi-translate icon-r"></i> Traduire</a>
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><form action="{{ route('admin.reference.delete') }}" method="POST" class="d-inline" onsubmit="return confirm('Supprimer cette réference ?')">
+                                    <li><form action="{{ route('admin.references.delete') }}" method="POST" class="d-inline" onsubmit="return confirm('Supprimer cette réference ?')">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="ref_id" value="{{ $item->id }}">

@@ -7,7 +7,7 @@
 @section('content')
 <div class="panel">
     <div class="panel-header">
-        <h2>Créer un service</h2>
+        <h2>Modifier un service</h2>
         <a href="{{ route('admin.services.all') }}" class="btn btn-outline-secondary btn-sm">Retour</a>
     </div>
     <div class="panel-body">

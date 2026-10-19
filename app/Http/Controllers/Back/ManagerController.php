@@ -9,6 +9,7 @@ use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\User;
 
 class ManagerController extends Controller
 {
@@ -86,14 +87,15 @@ class ManagerController extends Controller
         return view('back.references.index', compact('references'));
     }
 
-    public function usersAll() 
+    public function usersAll() : View
     {
-        return "Print all user list";
+        $users = User::where('id', '!=', Auth::id())->paginate(10)->withQueryString();
+        return view('back.users.index', compact('users'));
     }
 
     public function showAccountSetting() : View 
     {
         $user = Auth::user();
-        return view('back.account-setting.show', compact('user'));
+        return view('back.setting.show', compact('user'));
     }
 } 

@@ -8,6 +8,7 @@ use App\Http\Controllers\Back\ManagerController;
 use App\Http\Controllers\Back\Reference\ReferenceController;
 use App\Http\Controllers\Back\Services\ServiceController;
 use App\Http\Controllers\Back\SettingController;
+use App\Http\Controllers\Back\User\UserController;
 
 Route::get('dashboard', [ManagerController::class, 'dashboard'])->name('dashboard');
 
@@ -31,30 +32,37 @@ Route::delete('actuality/categories/delete', [CategoryController::class, 'catego
 
 // Route of services
 Route::get('services', [ManagerController::class, 'servicesAll'])->name('services.all');
-Route::get('services/create', [ServiceController::class, 'serviceCreate'])->name('service.create');
-Route::post('services/store', [ServiceController::class, 'serviceStore'])->name('service.store');
-Route::get('service/{service_id}/edit/{slug}', [ServiceController::class, 'serviceEdit'])->name('service.edit');
-Route::post('service/update', [ServiceController::class, 'serviceUpdate'])->name('service.update');
-Route::get('service/{service_id}/translate/{slug}', [ServiceController::class, 'serviceTranslate'])->name('service.translate');
-Route::post('service/translate/add', [ServiceController::class, 'serviceTranslateAdd'])->name('service.translate-add');
-Route::delete('service/delete', [ServiceController::class, 'serviceDelete'])->name('service.delete');
+Route::get('services/create', [ServiceController::class, 'serviceCreate'])->name('services.create');
+Route::post('services/store', [ServiceController::class, 'serviceStore'])->name('services.store');
+Route::get('services/{service_id}/edit/{slug}', [ServiceController::class, 'serviceEdit'])->name('services.edit');
+Route::post('services/update', [ServiceController::class, 'serviceUpdate'])->name('services.update');
+Route::get('services/{service_id}/translate/{slug}', [ServiceController::class, 'serviceTranslate'])->name('services.translate');
+Route::post('services/translate/add', [ServiceController::class, 'serviceTranslateAdd'])->name('services.translate-add');
+Route::delete('services/delete', [ServiceController::class, 'serviceDelete'])->name('services.delete');
 
 // Route of preferences
 Route::get('references', [ManagerController::class, 'referencesAll'])->name('references.all');
-Route::get('references/create', [ReferenceController::class, 'referenceCreate'])->name('reference.create');
-Route::post('references/store', [ReferenceController::class, 'referenceStore'])->name('reference.store');
-Route::get('reference/{ref_id}/edit/{slug}/', [ReferenceController::class, 'referenceEdit'])->name('reference.edit');
-Route::post('reference/update', [ReferenceController::class, 'referenceUpdate'])->name('reference.update');
-Route::get('reference/{ref_id}/translate/{slug}/', [ReferenceController::class, 'referenceTranslate'])->name('reference.translate');
-Route::post('reference/translate/add', [ReferenceController::class, 'referenceTranslateAdd'])->name('reference.translate-add');
-Route::delete('reference/delete', [ReferenceController::class, 'referenceDelete'])->name('reference.delete');
-
-/* Route of users */
-Route::get('users', [ManagerController::class, 'usersAll'])->name('users.all');
+Route::get('references/create', [ReferenceController::class, 'referenceCreate'])->name('references.create');
+Route::post('references/store', [ReferenceController::class, 'referenceStore'])->name('references.store');
+Route::get('references/{ref_id}/edit/{slug}/', [ReferenceController::class, 'referenceEdit'])->name('references.edit');
+Route::post('references/update', [ReferenceController::class, 'referenceUpdate'])->name('references.update');
+Route::get('references/{ref_id}/translate/{slug}/', [ReferenceController::class, 'referenceTranslate'])->name('references.translate');
+Route::post('references/translate/add', [ReferenceController::class, 'referenceTranslateAdd'])->name('references.translate-add');
+Route::delete('references/delete', [ReferenceController::class, 'referenceDelete'])->name('references.delete');
 
 /* Route of profil settings */
 Route::get('account/setting', [ManagerController::class, 'showAccountSetting'])->name('account.setting.show');
 Route::post('account/update/setting', [SettingController::class, 'updateProfile'])->name('account.setting.update');
+
+/* Route of users */
+Route::get('users', [ManagerController::class, 'usersAll'])->name('users.all');
+Route::get('users/create', [UserController::class, 'userCreate'])->name('users.create');
+Route::post('users/store', [UserController::class, 'userStore'])->name('users.store');
+Route::get('users/{user_id}/edit', [UserController::class, 'userEdit'])->name('users.edit');
+Route::post('users/update', [UserController::class, 'userUpdate'])->name('users.update');
+Route::get('users/{user_id}/blocked', [UserController::class, 'userBlocked'])->name('users.blocked');
+Route::get('users/{user_id}/reset', [UserController::class, 'userResetPassword'])->name('users.reset');
+Route::delete('users/delete', [UserController::class, 'userDelete'])->name('users.delete');
 
 // Route of disconnection 
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');

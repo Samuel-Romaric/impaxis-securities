@@ -1,19 +1,21 @@
 <?php
-
+use Illuminate\Support\Str;
 
 if (!function_exists('activeRoute')) {
     /**
      * Determine if the given route is active.
      *
-     * @param  string  $routeName
+     * @param  string $routes
      * @return string
      */
-    function activeRoute($routeName)
+    function activeRoute(string ...$routes): string
     {
-        if (!request()->routeIs($routeName)) {
-            return '';
+        foreach ($routes as $route) {
+            if (request()->routeIs($route)) {
+                return 'active';
+            }
         }
 
-        return $routeName === 'front.contact' ? 'activeContactRoute' : 'active';
+        return '';
     }
 }

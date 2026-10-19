@@ -11,7 +11,7 @@
         <a href="{{ route('admin.references.all') }}" class="btn btn-outline-secondary btn-sm">Retour</a>
     </div>
     <div class="panel-body">
-        <form method="POST" action="{{ route('admin.reference.update') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.references.update') }}" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="ref_id" value="{{ $reference->id }}">
             <div class="row g-3">

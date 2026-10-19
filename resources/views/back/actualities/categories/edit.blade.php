@@ -7,7 +7,7 @@
 @section('content')
 <div class="panel">
     <div class="panel-header">
-        <h2>Ajouter nouvelle catégorie</h2>
+        <h2>Modifier la catégorie</h2>
         <a href="{{ route('admin.actuality.categories.all') }}" class="btn btn-outline-secondary btn-sm">Retour</a>
     </div>
     <div class="panel-body">

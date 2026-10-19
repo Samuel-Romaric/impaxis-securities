@@ -10,7 +10,7 @@
         background: linear-gradient(135deg, #051b47 0%, #0b3272 100%);
         color: #fff;
         padding: 110px 0 80px;
-        min-height: 330px;
+        min-height: 430px;
     }
 
     .article-detail-hero::after {
@@ -47,7 +47,7 @@
     .article-detail-hero h1 {
         max-width: 840px;
         color: #fff;
-        font-size: clamp(42px, 5vw, 60px);
+        font-size: clamp(42px, 5vw, 6px);
         font-weight: 700;
         line-height: 1.18;
         margin: 0 0 20px;
@@ -264,7 +264,7 @@
             <div class="row">
                 <div class="col-lg-10">
                     <span class="article-detail-hero__kicker">Actualité</span>
-                    <h1>{{ $article->title }}</h1>
+                    <h1 class="article-detail-hero__title">{{ $article->title }}</h1>
                     <div class="article-detail-hero__meta">
                         <span><i class="fa fa-calendar"></i>{{ optional($article->published_at)->format('d M Y') ?? now()->format('d M Y') }}</span>
                         <span><i class="fa fa-folder-open"></i>{{ optional($article->category)->name ?? 'Actualité' }}</span>
@@ -291,6 +291,33 @@
                         <div class="article-detail__content">
                             {!! $article->content !!}
                         </div>
+
+                        @if($article->getMedia('post_documents')->isNotEmpty())
+                            <h5 class="mt-4">Documents pdf disponibles</h5>
+                        @endif
+
+                        @forelse ($article->getMedia('post_documents') as $document)
+                            <div class="document-item mb-3">
+                                <span>
+                                    <i class="bi bi-file-pdf"></i>
+                                    {{ $document->name }}
+                                </span>
+
+                                <a class="btn btn-link" href="{{ $document->getUrl() }}" target="_blank" rel="noopener noreferrer">
+                                    Consulter le PDF
+                                </a>
+
+                                {{-- <a href="{{ route('posts.documents.download', [
+                                    'post' => $post,
+                                    'media' => $document,
+                                ]) }}">
+                                    Télécharger --}}
+                                </a>
+                            </div>
+                        @empty
+                            {{-- <p>Aucun document disponible pour cette actualité.</p> --}}
+                        @endforelse
+
                     </div>
                 </article>
 
