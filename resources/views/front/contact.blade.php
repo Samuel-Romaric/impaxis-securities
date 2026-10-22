@@ -53,7 +53,8 @@
     <section class="actualites-section my-5" style="padding: 0px 0px;">
         <div class="container">
             <div class="row">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.2586148284036!2d-17.470545625731617!3d14.697961774687254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172aee90fe38d%3A0x7d065f6a1d49cb01!2sImpaxis%20Securities!5e0!3m2!1sfr!2sci!4v1788272008257!5m2!1sfr!2sci" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                {{-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.2586148284036!2d-17.470545625731617!3d14.697961774687254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec172aee90fe38d%3A0x7d065f6a1d49cb01!2sImpaxis%20Securities!5e0!3m2!1sfr!2sci!4v1788272008257!5m2!1sfr!2sci" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe> --}}
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.2722832355935!2d-17.47050632256656!3d14.69718813659601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec1729a7b91609d%3A0x498fe376c67b95ce!2sx%2C%20103%20Av.%20des%20Ambassadeurs%2C%20Dakar%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2sci!4v1792690085142!5m2!1sfr!2sci" width="600" height="450" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
         </div>
     </section>
@@ -69,7 +70,7 @@
                             <p> 
                                 <div class="row mb-2">
                                     <div class="col-md-1" style="padding-top: 10px;"><span style="color: #ffffff; padding: 8px; border-radius: 50%; background-color: #f59b00;"><i class="bi bi-geo-alt-fill"></i></span></div>
-                                    <div class="col-md-10"><span style="font-size: 16px; line-height: 1.5;"> Fann Résidence rue Aimé Césaire x Corniche Villa 103. BP 45545 Dakar – SENEGAL</span></div>
+                                    <div class="col-md-10"><span style="font-size: 16px; line-height: 1.5;"> Avenue Cheikh Anta DIOP X Avenue des Ambassadeurs, 103 Fann, B.P. 45545, Dakar, SÉNÉGAL</span></div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-md-1"><span style="color: #ffffff; padding: 8px; border-radius: 50%; background-color: #f59b00;"><i class="bi bi-telephone-fill"></i></span></div>

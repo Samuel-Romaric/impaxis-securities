@@ -16,7 +16,7 @@
                         </select>
                     </div>
                     {{-- <a class="topbar-link" href="#" aria-label="Choisir la langue">Français <span class="ms-1" aria-hidden="true">&#9662;</span></a> --}}
-                    <a class="topbar-link topbar-link--login" href="https://boursenligne.impaxis-securities.com/" target="_blank">Connexion</a>
+                    <a class="topbar-link topbar-link--login" href="https://boursenligne.impaxis-securities.com/" target="_blank">Accéder à mon compte</a>
                 </div>
             </div>
         </div>

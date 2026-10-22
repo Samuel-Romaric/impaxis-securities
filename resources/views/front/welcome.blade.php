@@ -800,7 +800,7 @@
         <div class="container">
             <h2 class="references-section__title" id="reference-title">Nos références</h2>
             <div class="row g-2">
-                <img src="{{ asset('front/assets/images/references/ref-impaxis.png') }}" alt="" srcset="">
+                <img src="{{ asset('front/assets/images/references/ref-impaxis.png') }}" width="auto" height="750px" alt="" srcset="">
                 {{-- @foreach ($reference as $item)
                 <div class="col-12 col-md-6 col-xl-3 d-flex">
                     <article class="card reference-card w-100">

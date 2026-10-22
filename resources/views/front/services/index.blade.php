@@ -299,7 +299,7 @@
 
     <section class="services-section" id="services" aria-labelledby="services-title">
         <div class="container">
-            <h2 class="services-section__title" id="services-title">Nos Services</h2>
+            {{-- <h2 class="services-section__title" id="services-title">Nos Services</h2> --}}
             <p class="services-section__intro">Impaxis Securities propose une gamme élargie de services financiers pour répondre aux besoins de sa clientèle :</p>
 
             <div class="row g-3">

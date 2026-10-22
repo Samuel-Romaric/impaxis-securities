@@ -26,10 +26,10 @@
                     <i class="bi bi-flag"></i> Références
                 </a>
 
-                {{-- <p class="nav-label">Administration</p>
+                <p class="nav-label">Administration</p>
                 <a href="{{ route('admin.users.all') }}" class="nav-item {{ activeRoute('admin.users.*') }}">
                     <i class="bi bi-people"></i> Utilisateurs
-                </a> --}}
+                </a>
                 {{-- <a href="#" class="nav-item ">
                     <i class="bi bi-gear"></i> Mon compte
                 </a> --}}

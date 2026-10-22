@@ -142,9 +142,16 @@
             color: #fff;
         }
 
-        .mainnav .activeContactRoute {
+        .mainnav .activeContactBtn {
             background: #fff;
             color: #123878 !important;
+            border: 1.5px solid #123878;
+        }
+
+        .mainnav .activeContactBtn:hover,
+        .mainnav .activeContactBtn:focus {
+            background: #123878;
+            color: #fff !important;
             border: 1.5px solid #123878;
         }
 

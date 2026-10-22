@@ -31,8 +31,8 @@
                     <h2 class="footer-heading">Accès rapide</h2>
                     <ul class="footer-links">
                         <li><a href="https://docuseal.com/d/4buk6GcKhzBLXb" target="_blank">Devenir client</a></li>
-                        <li><a href="https://boursenligne.impaxis-securities.com/" target="_blank">Connexion</a></li>
-                        <li><a href="{{ route('front.faq') }}">FAQ</a></li>
+                        <li><a href="https://boursenligne.impaxis-securities.com/" target="_blank">Accéder à mon compte</a></li>
+                        <li><a href="{{ route('front.faq') }}">Foire Aux Questions</a></li>
                         <li><a href="{{ route('front.contact') }}">Service client</a></li>
                     </ul>
                 </div>
