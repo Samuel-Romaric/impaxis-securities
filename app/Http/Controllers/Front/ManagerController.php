@@ -13,8 +13,8 @@ class ManagerController extends Controller
     // 
     public function index(string $locale)
     {
-        $services = Service::where('lang', $locale)->where('status', 'published')->get();
-        $articles = Post::where('lang', $locale)->where('status', 'published')->orderBy('published_at', 'desc')->get();
+        $services = Service::where('lang', $locale)->where('status', 'published')->take(4)->get();
+        $articles = Post::where('lang', $locale)->where('status', 'published')->orderBy('published_at', 'desc')->take(3)->get();
         $reference = References::where('lang', $locale)->where('status', 'published')->get();
         // dd($reference);
         

@@ -768,6 +768,9 @@
                     </div>
                 @endforeach
             </div>
+            <div class="text-center mt-4">
+                <a class="history-section__action" href="{{ route('front.services') }}">Tous nos services</a>
+            </div>
         </div>
     </section>
 
@@ -800,7 +803,7 @@
         <div class="container">
             <h2 class="references-section__title" id="reference-title">Nos références</h2>
             <div class="row g-2">
-                <img src="{{ asset('front/assets/images/references/ref-impaxis.png') }}" width="auto" height="750px" alt="" srcset="">
+                <img src="{{ asset('front/assets/images/references/ref-impaxis-1.png') }}" width="auto" height="750px" alt="reference impaxis securities" srcset="">
                 {{-- @foreach ($reference as $item)
                 <div class="col-12 col-md-6 col-xl-3 d-flex">
                     <article class="card reference-card w-100">
@@ -962,6 +965,10 @@
                         <span class="news-carousel__icon news-carousel__icon--next" aria-hidden="true"></span>
                     </button>
                 @endif
+
+                <div class="text-center mt-4">
+                    <a class="history-section__action" href="{{ route('front.actualites', ['locale' => app()->getLocale()]) }}">Toutes nos actualités</a>
+                </div>
                 
             </div>
         </div>
