@@ -92,7 +92,7 @@
             justify-content: center;
             margin-top: auto;
             border-radius: 4px;
-            background: var(--impaxis-orange);
+            background: #3862aa; /* var(--impaxis-orange) */;
             color: #fff;
             font-size: 16px;
             font-weight: 700;
